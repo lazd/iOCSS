@@ -7,16 +7,16 @@ Written with Stylus and easily customizable, iOCSS gives your app a "native" loo
 
 1. Clone the repository
 
-```git clone https://github.com/lazd/iOCSS.git```
+    `git clone https://github.com/lazd/iOCSS.git`
 
 2. Install the node modules
 
-```npm install```
+    `npm install`
 
 3. Build iOCSS
 
-```grunt```
+    `grunt`
 
 4. Build your app with the output file
 
-```cp build/css/io.css ~/myProject/css/```
+    `cp build/css/io.css ~/myProject/css/`

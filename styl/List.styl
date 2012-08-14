@@ -1,0 +1,69 @@
+ul.list {
+	box-flex: 1;
+	
+	padding: 0;
+	margin: 0;
+	
+	list-style: none;
+
+	li {
+	    border-box();
+		box-horizontal();
+		box-align: center;
+		box-pack: start;
+	    
+	    width: 100%;
+		height: 3em;
+		padding: 0 0.5em;
+	    
+		border-bottom: $px solid $list-border-color;
+		
+		cursor: pointer;
+		overflow: hidden;
+		
+		strong,
+		span {
+			box-flex: 2;
+			
+			font-size: 1.25em;
+			
+			strong {
+				display: inline;
+				padding: 0;
+				
+				font-size: 1em;
+			}
+		}
+		
+		button.round {
+			margin-right: 0.75em;
+			
+			font-size: 0.85em;
+		}
+		
+		button.unlock {
+			transition: all 0.075s ease-in;
+			
+			&.unlocked {
+				transform: rotate(-90deg);
+			}
+		}
+	
+		button.view {
+			padding-left: 0.085em;
+			margin-right: 0.75em;
+		}
+		
+		button {
+			margin: 0 0.5em;
+			
+			text-align: center;
+		}
+		
+		div:last-child {
+			box-flex: 1;
+			
+			text-align: right;
+		}
+	}
+}

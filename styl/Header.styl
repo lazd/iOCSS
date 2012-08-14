@@ -1,0 +1,71 @@
+div.header {
+	width: 100%;
+
+	position: relative;
+	
+	height: $header-height;
+
+	box-shadow: 0 2*$px 4*$px $header-shadow-color;
+
+	border-bottom: $px solid $header-border-color;
+	
+	background: linear-gradient($header-gradient-start, $header-gradient-end);
+
+	h1 {
+		width: 100%;	
+		margin: 0;
+		padding: 0;
+	
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+	    
+		color: white;
+		font-weight: bold;
+		font-size: 1.25em;
+		line-height: 2.357em;
+		text-align: center;
+		text-shadow: 0 0 -($px) $header-text-shadow-color;
+	
+		text-overflow: ellipsis;
+	}
+
+	div {
+		/* Center the buttons vertically */
+		box-horizontal();
+		box-center();
+		
+		height: $header-height;
+		padding: 0 0.25em;
+		
+		position: absolute;
+		top: 0;
+		z-index: 2;	
+	
+		/* The first div should be shoved to the left */
+		&:first-child {
+			text-align: left;
+			left: 0;
+		}
+
+		/* The last div should be shoved to the right */
+		&:last-child {
+			text-align: right;
+			right: 0;
+		}
+
+		/* Header buttons have a different look */
+		button {
+			margin: 0 0.25em;
+		
+			background: linear-gradient($header-button-gradient-start, $header-button-gradient-end);
+		
+			font-size: 1em;
+		}
+	
+		button.default {
+			background: linear-gradient($header-button-default-gradient-start, $header-button-default-gradient-end);
+		}
+	}
+}

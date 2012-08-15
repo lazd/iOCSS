@@ -51,6 +51,9 @@ $footer-gradient-end = rgb(221, 221, 221);
 $footer-button-border-left-color = rgb(180, 180, 180);
 $footer-button-border-right-color = rgb(246, 246, 246);
 
+$footer-button-text-color = rgb(71, 71, 71);
+$footer-text-shadow-color = $header-text-shadow-color ;
+
 $footer-icon-gradient = (rgb(80, 80, 80) rgb(160, 160, 160));
 $footer-icon-down-gradient = (rgb(72, 72, 72) rgb(145, 145, 145));
 
@@ -65,18 +68,24 @@ $footer-icon-down-color = rgb(145, 145, 145);
 	a.button {
 		background: linear-gradient($footer-gradient-start, $footer-gradient-end);
 		
+		color: $footer-button-text-color;
+		
+		text-shadow: 0 2*$px 0 $footer-text-shadow-color;
+		
 		border-left-color: $footer-button-border-left-color;
 		border-right-color: $footer-button-border-right-color;
 		
-        i:before {
-            color: $footer-icon-color;
+		i:before {
+			color: $footer-icon-color;
 		}
 		
 		&.down {
-        	box-shadow: inset 0 0.5em 2.5em rgba(0, 0, 0, 0.35);
+			box-shadow: inset 0 0.5em 2.5em rgba(0, 0, 0, 0.35);
 			
-	        i:before {
-	            color: $footer-icon-down-color;
+			color: $footer-button-text-color;
+			
+			i:before {
+				color: $footer-icon-down-color;
 			}
 		}
 	}

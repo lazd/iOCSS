@@ -15,73 +15,80 @@
 	<!-- iOCSS -->
 	<link rel="stylesheet" type="text/css" href="css/io.css">
 	
+	<!-- Prettify -->
+	<link href="google-code-prettify/prettify.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="google-code-prettify/prettify.js"></script>
+
 	<script type="text/javascript">
-		function $(id) {
-			return document.getElementById(id);
-		}
-		
-		function changeSize(by) {
-			var newSize = (parseInt(document.body.style.fontSize || 14)+by)+'px';
+		(function() {
+			prettyPrint();
 			
-			document.body.style.fontSize = newSize;
-			
-			$('size-current').innerHTML = newSize;
-		}
-		
-		var tabs = [
-			'about',
-			'docs',
-			'donate'
-		];
-		
-		var curTab = 'about';
-		
-		function changeTab(tab) {
-			$('tab-'+curTab).className = '';
-			$('panel-'+curTab).style.display = 'none';
-			
-			$('tab-'+tab).className = 'down';
-			$('panel-'+tab).style.display = '';
-			
-			curTab = tab;
-			
-			window.location.hash = tab;
-		};
-		
-		function addTabListener(tab) {
-			$('tab-'+tab).addEventListener('click', function() {
-				changeTab(tab);
-			});
-		}
-		
-		window.addEventListener('load', function() {
-			changeSize(0);
-			
-			$('size-decrease').addEventListener('click', function() {
-				changeSize(-2);
-			});
-			
-			$('size-increase').addEventListener('click', function() {
-				changeSize(2);
-			});
-			
-			for (var i = 0; i < tabs.length; i++) {
-				addTabListener(tabs[i])
+			function $(id) {
+				return document.getElementById(id);
 			}
+		
+			function changeSize(by) {
+				var newSize = (parseInt(document.body.style.fontSize || 14)+by)+'px';
 			
-			if (window.location.hash) {
+				document.body.style.fontSize = newSize;
+			
+				$('size-current').innerHTML = newSize;
+			}
+		
+			var tabs = [
+				'about',
+				'docs',
+				'donate'
+			];
+		
+			var curTab = 'about';
+		
+			function changeTab(tab) {
+				$('tab-'+curTab).className = '';
+				$('panel-'+curTab).style.display = 'none';
+			
+				$('tab-'+tab).className = 'down';
+				$('panel-'+tab).style.display = '';
+			
+				curTab = tab;
+			
+				window.location.hash = tab;
+			};
+		
+			function addTabListener(tab) {
+				$('tab-'+tab).addEventListener('click', function() {
+					changeTab(tab);
+				});
+			}
+
+			function setTabFromHash() {
 				var hashTab = window.location.hash.slice(1);
-				if (tabs.indexOf && tabs.indexOf(hashTab))
+				if (tabs.indexOf && ~tabs.indexOf(hashTab))
 					changeTab(hashTab);
 			}
+		
+			window.addEventListener('load', function() {
+				changeSize(0);
 			
-			window.addEventListener("hashchange", function() {
-				var hashTab = window.location.hash.slice(1);
-				
-				if (tabs.indexOf && tabs.indexOf(hashTab))
-					changeTab(hashTab);
+				$('size-decrease').addEventListener('click', function() {
+					changeSize(-2);
+				});
+			
+				$('size-increase').addEventListener('click', function() {
+					changeSize(2);
+				});
+			
+				for (var i = 0; i < tabs.length; i++) {
+					addTabListener(tabs[i])
+				}
+			
+				if (window.location.hash) {
+					setTabFromHash();
+				}
+			
+				window.addEventListener("hashchange", setTabFromHash);
 			});
-		});
+		}());
 		
 	</script>
 	
@@ -114,6 +121,23 @@
 		
 		.paypal {
 			margin: 1em 0 0 1em;
+		}
+		
+		ol li {
+			margin-bottom: 1em;
+		}
+		
+		code {
+			display: block;
+			margin: 0.5em;
+			padding: 0.5em;
+			
+			background: #f4f4f4;
+			
+			white-space: pre;
+			
+			border-radius: 0.5em;
+			border: 0.1em solid #aaa;
 		}
 		
 	</style>
@@ -183,7 +207,39 @@
 			<div style="display: none;" id="panel-docs">
 				
 				<div class="well">
-					<h1>Coming soon.</h1>
+					<h1>iOCSS Documentation</h1>
+					
+					<a href="#gettingStarted">Getting Started</a>
+				</div>
+
+				<div id="gettingStarted" class="well">
+					<h2>Getting Started</h2>
+					<ol>
+						<li><a href="css/io.css" download="io.css" class="button default"><i class="icon-download-alt"></i> Download io.css</a></li>
+						
+						<li>Include io.css in your project
+						<code class="prettyprint lang-html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/io.css&quot;&gt;</code>
+							
+						</li>
+						<li>Add the iOCSS class to the &lt;body&gt; element</li>
+						<code class="prettyprint lang-html">&lt;body class=&quot;iOCSS&quot;&gt;</code>
+					</ol>
+				</div>
+				
+				<div id="header" class="well">
+					<h2>Header</h2>
+					<p>Use the CSS class header</p>
+					<code class="prettyprint lang-html">&lt;div class=&quot;header&quot;&gt;
+  &lt;div&gt;
+    &lt;a href=&quot;/donate&quot; class=&quot;button&quot;&gt;&lt;i class=&quot;icon-money&quot;&gt;&lt;/i&gt; Donate&lt;/a&gt;
+  &lt;/div&gt;
+  
+  &lt;h1&gt;My Title&lt;/h1&gt;
+  
+  &lt;div&gt;
+    &lt;button class=&quot;default&quot;&gt;Done&lt;/button
+  &lt;/div&gt;
+&lt;/div&gt;</code>
 				</div>
 				
 			</div>

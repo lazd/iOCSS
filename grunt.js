@@ -18,7 +18,7 @@ module.exports = function(grunt) {
 					]
 				},
 				files: {
-					'build/css/io.css': 'styl/Main.styl'
+					'build/css/io.css': 'styl/iOCSS.styl'
 				}
 			}
 		},

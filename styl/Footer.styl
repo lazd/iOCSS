@@ -1,0 +1,107 @@
+$footer-border-color = rgb(87, 87, 87);
+$footer-shadow-color = rgb(87, 87, 87);
+
+$footer-gradient-start = rgb(52, 52, 52);
+$footer-gradient-end = rgb(18, 18, 18);
+
+$footer-button-down-gradient-start = rgb(48, 48, 48);
+$footer-button-down-gradient-end = rgb(66, 66, 66);
+
+$footer-button-left-color = rgb(38, 38, 38);
+$footer-button-right-color = rgb(62, 62, 62);
+
+$footer-size = 3.5em;
+$footer-font-size = $footer-size - 2.75;
+
+$footer-button-text-color = rgb(153, 153, 153);
+$footer-button-down-text-color = rgb(255, 255, 255);
+
+$footer-icon-size = (1 / $footer-font-size) * $footer-size - 1.95;
+$footer-icon-height = $footer-size - 1.25;
+
+$footer-icon-gradient = (rgb(165, 165, 165) rgb(89, 89, 89));
+$footer-icon-down-gradient = (rgb(52, 130, 252) rgb(51, 196, 248));
+
+$footer-icon-color = rgb(185, 185, 185);
+$footer-icon-down-color = rgb(5, 175, 255);
+
+div.footer {
+    box-horizontal();
+    box-center();
+    
+    width: 100%;
+    height: $footer-size;
+    
+    border-top: $px solid $footer-border-color;
+    
+    background: linear-gradient($footer-gradient-start, $footer-gradient-end);
+    
+    button,
+    a.button {
+        width: $footer-size+2;
+        height: (1 / $footer-font-size) * $footer-size;
+        display: block;
+        margin: 0;
+        
+        background: linear-gradient($footer-gradient-start, $footer-gradient-end);
+        
+        border: none;
+        border-left: (1 / $footer-font-size)*$px solid $footer-button-left-color;
+        border-right: (1 / $footer-font-size)*$px solid $footer-button-right-color;
+        border-radius: 0;
+        
+        box-shadow: none;
+        
+        color: $footer-button-text-color;
+        font-weight: bold;
+        font-size: $footer-font-size;
+        
+        i {
+            text-shadow: none;
+            display: block;
+            
+            height: $footer-icon-height;
+            margin: ($footer-size / 14) 0;
+        }
+        i:before {
+            font-size: $footer-icon-size;
+            
+            color: $footer-icon-color;
+            -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+            /*
+            // Can't do this due to Webkit bug #67415, makes text blurry
+            background: -webkit-gradient(linear, left top, left bottom, from($footer-icon-gradient[0]), to($footer-icon-gradient[1]));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            */
+        }
+        
+        &.down {
+            color: $footer-button-down-text-color;
+        	box-shadow: inset 0 $px 5*$px rgba(0, 0, 0, 0.5);
+				
+            background: linear-gradient($footer-button-down-gradient-start, $footer-button-down-gradient-end);
+            
+            
+            i:before {
+                color: $footer-icon-down-color;
+                
+                -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.65)), to(rgba(0,0,0,1)));
+                /*
+                // Can't do this due to Webkit bug #67415, makes text blurry
+                background: -webkit-gradient(linear, left top, left bottom, from($footer-icon-down-gradient[0]), to($footer-icon-down-gradient[1]));
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                */
+            }
+        }
+        
+        &:first-child {
+            border-left: none;
+        }
+        
+        &:last-child {
+            border-right: none;
+        }
+    }
+}

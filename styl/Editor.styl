@@ -1,48 +1,38 @@
-form.editor {
-	background: $editor-background-color;
-	box-vertical();
-	
-	div.fields {
-		box-flex: 1;
-		margin: 1em;
-		
-		background: white;
-		
-		border: $px solid $editor-fields-border-color;
-		border-radius: 1em;
-		
-		div.field {
-            border-box();
-			box-horizontal();
-			width: 100%;
-			padding: 0.5em;
-		
-			border-top: 0.063em solid $editor-field-border-color;
-			
-			label {
-				display: block;
-				width: 4em;
-				padding-right: 1em;
+.well.fields {
+    padding: 0;
+}
 
-				color: $editor-label-text-color;
-				line-height: 2.5em;
-				font-weight: bold;
-				text-align: right;
-			}
-			
-			input {
-				display: block;
-				box-flex: 1;
-				padding: 0.5em;
-				
-				border: none;
-				
-				font-size: 1em;
-			}
-		}
+div.field {
+    border-box();
+	width: 100%;
+	
+	box-horizontal();
+	padding: 0.5em;
+
+	border-top: $px solid $editor-field-border-color;
+	
+	&:first-child {
+    	border-top: none;
+    }
+	
+	label {
+		display: block;
+		width: 4em;
+		padding-right: 1em;
+
+		color: $editor-label-text-color;
+		line-height: 2.5em;
+		font-weight: bold;
+		text-align: right;
+	}
+	
+	input {
+		display: block;
+		box-flex: 1;
+		padding: 0.5em;
 		
-		div.field:first-child {
-			border-top: none;
-		}
+		border: none;
+		
+		font-size: 1em;
 	}
 }

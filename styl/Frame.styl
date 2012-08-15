@@ -1,0 +1,33 @@
+.frame {
+	box-vertical();
+	background-color: $frame-background-color;
+	background-size: 1em;
+	background-image: linear-gradient(left, rgba(255, 255, 255, 0.075) 30%, transparent 30%, transparent);
+}
+
+.well {
+    clearfix();
+    
+	margin: 0.85em;
+	padding: 1em;
+
+	background: $frame-inner-background-color;
+	
+	box-shadow: 0 0.125em 0 $frame-highlight-color,
+	            inset 0 0.15em 0.2em rgba(0, 0, 0, 0.15);
+
+	border: $px solid $frame-inner-border-color;
+	border-radius: 1em;
+
+	h2 {
+		margin: 0;
+	}
+
+	p {
+		margin: 1em 0 0 0;
+	}
+}
+
+.well + .well {
+    margin-top: 0.5em;
+}

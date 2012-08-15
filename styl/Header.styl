@@ -56,14 +56,24 @@ div.header {
 		}
 
 		/* Header buttons have a different look */
+        a.button,
 		button {
+		    padding: 0.5em 0.75em;
 			margin: 0 0.25em;
 		
-			background: linear-gradient($header-button-gradient-start, $header-button-gradient-end);
-		
-			font-size: 1em;
-		}
+		    border: none;
+	        border-radius: 0.5em;
 	
+        	box-shadow: inset 0 0.1em 0.05em rgba(0, 0, 0, 0.55),
+        	            inset 0 -0.1em 0.05em rgba(0, 0, 0, 0.15),
+        	            inset 0.1em 0 0.05em rgba(0, 0, 0, 0.15),
+        	            inset -0.1em 0 0.05em rgba(0, 0, 0, 0.15),
+        				0 0.1em 0.05em rgba(255, 255, 255, 0.35);
+        				
+			background: linear-gradient($header-button-gradient-start, $header-button-gradient-end);
+		}
+	    
+        a.button.default,
 		button.default {
 			background: linear-gradient($header-button-default-gradient-start, $header-button-default-gradient-end);
 		}

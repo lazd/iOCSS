@@ -1,0 +1,34 @@
+@import 'nib'
+
+@import 'Variables'
+@import 'Mixins'
+
+@import 'Layout'
+
+.iOCSS {
+	box-vertical();
+	width: 100%;
+	height: 100%;
+	
+	// Start larger than our base size
+	font-size: $base-size + 2 * 1px;
+	font-family: $base-font;
+	
+	overflow: hidden;
+	
+	& > * {
+		height: 100%;
+	}
+}
+
+.iOCSS {
+    @import 'Scroller'
+    @import 'Buttons'
+    @import 'Header'
+    @import 'Footer'
+    @import 'Search'
+    @import 'List'
+    @import 'Editor'
+    @import 'Frame'
+}
+

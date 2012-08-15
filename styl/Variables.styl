@@ -1,13 +1,18 @@
 /* Base
 /* --------------------------------- */
-$base-size = 16;
 
+// The smallest size we want to support
+$base-size = 12;
+
+// The size of a "pixel" based on the smallest size
 $px = 1 / $base-size + 0em;
+
+$base-font = Helvetica;
 
 
 /* Header
 /* --------------------------------- */
-$header-height = 2.75em;
+$header-height = 3em;
 $header-border-color = rgb(56, 85, 112);
 $header-gradient-start = rgb(177, 191, 211);
 $header-gradient-end = rgb(91, 116, 151);
@@ -29,10 +34,16 @@ $search-gradient-end = rgb(180, 190, 198);
 $search-field-border-color = rgb(150, 150, 150);
 
 
+/* Frames
+/* --------------------------------- */
+$frame-background-color = rgb(198, 204, 212);
+$frame-inner-border-color = rgb(161, 167, 173);
+$frame-inner-background-color = rgb(255, 255, 255);
+$frame-highlight-color = rgb(244, 244, 244);
+
+
 /* Editor
 /* --------------------------------- */
-$editor-background-color = rgb(208, 212, 220);
-$editor-fields-border-color = rgb(161, 167, 173);
 $editor-field-border-color = rgb(202, 202, 202);
 $editor-label-text-color = rgb(81, 102, 145);
 
@@ -44,6 +55,7 @@ $list-border-color = rgb(224, 224, 224);
 
 /* Buttons
 /* --------------------------------- */
+$button-font = $base-font;
 $button-text-color = rgb(255, 255, 255);
 
 /* Button: Blue */

@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>iOCSS</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	
+	<!-- Ensure correct presentation on iOS -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	
+	<!-- FontAwesome Icons -->
+	<link rel="stylesheet" type="text/css" href="lib/font-awesome/font-awesome.css">
+	
+	<!-- iOCSS -->
+	<link rel="stylesheet" type="text/css" href="../build/css/io.css">
+	
+	<script type="text/javascript">
+		(function() {
+			function $(id) {
+				return document.getElementById(id);
+			}
+			
+			var tabs = [
+				'about',
+				'docs',
+				'donate'
+			];
+		
+			var curTab = 'about';
+		
+			function changeTab(tab) {
+				$('tab-'+curTab).className = '';
+				$('panel-'+curTab).style.display = 'none';
+			
+				$('tab-'+tab).className = 'down';
+				$('panel-'+tab).style.display = '';
+			
+				curTab = tab;
+			
+				window.location.hash = tab;
+			};
+		
+			function addTabListener(tab) {
+				$('tab-'+tab).addEventListener('click', function() {
+					changeTab(tab);
+				});
+			}
+
+			function setTabFromHash() {
+				var hashTab = window.location.hash.slice(1);
+				if (tabs.indexOf && ~tabs.indexOf(hashTab))
+					changeTab(hashTab);
+			}
+		
+			window.addEventListener('load', function() {
+				for (var i = 0; i < tabs.length; i++) {
+					addTabListener(tabs[i])
+				}
+			
+				setTabFromHash();
+			
+				window.addEventListener("hashchange", setTabFromHash);
+			});
+		}());
+		
+	</script>
+	
+	<style>
+	</style>
+	
+</head>
+<body class="iOCSS">
+
+	<div class="frame">
+		
+		<div class="header">
+			<div>
+				<a href="https://github.com/lazd/iOCSS" class="button"><i class="icon-github"></i> Git</a>
+			</div>
+			
+			<h1>iOCSS</h1>
+			
+			<div>
+				<a href="css/io.css" download="io.css" class="button default"><i class="icon-download-alt"></i> Download</a>
+			</div>
+		</div>
+		
+		<div class="scroller">
+			
+			<div id="panel-about">
+				
+				<div class="well">
+					<h1>About</h1>
+					<p>The about section.</p>
+				</div>
+			
+			</div>
+			
+			<div style="display: none;" id="panel-docs">
+				
+				<div class="well">
+					<h1>Documentation</h1>
+					
+					<p>The docs section</p>
+				</div>
+				
+			</div>
+			
+			<div style="display: none;" id="panel-donate">
+				
+				<div class="well">
+					<h1>Donate</h1>
+					<p>The donate section.</p>
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class="footer">
+			<button id="tab-about" class="down">
+				<i class="icon-question-sign"></i>
+				About
+			</button>
+			<button id="tab-docs">
+				<i class="icon-book"></i>
+				Docs
+			</button>
+			<button id="tab-donate">
+				<i class="icon-money"></i>
+				Donate
+			</button>
+		</div>
+		
+	</div>
+	
+</body>
+</html>

@@ -44,6 +44,8 @@
 			$('panel-'+tab).style.display = '';
 			
 			curTab = tab;
+			
+			window.location.hash = tab;
 		};
 		
 		function addTabListener(tab) {
@@ -66,7 +68,21 @@
 			for (var i = 0; i < tabs.length; i++) {
 				addTabListener(tabs[i])
 			}
+			
+			if (window.location.hash) {
+				var hashTab = window.location.hash.slice(1);
+				if (tabs.indexOf && tabs.indexOf(hashTab))
+					changeTab(hashTab);
+			}
+			
+			window.addEventListener("hashchange", function() {
+				var hashTab = window.location.hash.slice(1);
+				
+				if (tabs.indexOf && tabs.indexOf(hashTab))
+					changeTab(hashTab);
+			});
 		});
+		
 	</script>
 	
 	<style>
@@ -92,6 +108,12 @@
 			font-size: 3em;
 			height: 1.05em;
 			color: gray;
+			
+			text-shadow: 0.05em 0.05em 0.1em rgba(0, 0, 0, 0.2);
+		}
+		
+		.paypal {
+			margin: 1em 0 0 1em;
 		}
 		
 	</style>
@@ -158,10 +180,30 @@
 				</div>
 			</div>
 			
-			<div id="panel-docs">
+			<div style="display: none;" id="panel-docs">
+				
+				<div class="well">
+					<h1>Coming soon.</h1>
+				</div>
+				
 			</div>
 			
-			<div id="panel-donate">
+			<div style="display: none;" id="panel-donate">
+				
+				<div class="well">
+					<h1>Donate</h1>
+					<p>Do you use iOCSS in your project? Consider sending us a small token of your appreciation.</p>
+					
+					<form class="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+						<input type="hidden" name="cmd" value="_s-xclick">
+						<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+						">
+						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+						<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+					</form>
+
+				</div>
+				
 			</div>
 		</div>
 		

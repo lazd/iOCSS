@@ -1,0 +1,83 @@
+/* Header
+/* --------------------------------- */
+$header-gradient-start = rgb(246, 246, 246);
+$header-gradient-end = rgb(220, 223, 223);
+
+$header-border-color = rgb(170, 170, 170);
+
+$header-text-color = rgb(71, 71, 71);
+$header-text-shadow-color = rgb(255, 255, 255);
+
+$header-button-gradient-start = rgb(241, 241, 241);
+$header-button-gradient-end = rgb(215, 216, 217);
+
+$header-button-default-gradient-start = rgb(221, 221, 221);
+$header-button-default-gradient-end = rgb(195, 195, 195);
+
+.iOCSS.white div.header,
+.iOCSS div.header.white {
+	background: linear-gradient($header-gradient-start, $header-gradient-end);
+	
+	border-bottom-color: $header-border-color;
+	
+	h1 {
+		color: $header-text-color;
+		
+		text-shadow: 0 2*$px 0 $header-text-shadow-color;
+	}
+	
+	a.button,
+	button {
+		background: linear-gradient($header-button-gradient-start, $header-button-gradient-end);
+		
+		color: $header-text-color;
+		text-shadow: 0 2*$px 0 $header-text-shadow-color;
+		
+		&.default {
+			background: linear-gradient($header-button-default-gradient-start, $header-button-default-gradient-end);
+			text-shadow: 0 2*$px 0 rgb(220, 220, 220);
+		}
+	}
+}
+
+/* Footer
+/* --------------------------------- */
+$footer-border-color = rgb(87, 87, 87);
+$footer-shadow-color = rgb(87, 87, 87);
+
+$footer-gradient-start = rgb(245, 245, 245);
+$footer-gradient-end = rgb(221, 221, 221);
+
+$footer-button-border-left-color = rgb(180, 180, 180);
+$footer-button-border-right-color = rgb(246, 246, 246);
+
+$footer-icon-gradient = (rgb(80, 80, 80) rgb(160, 160, 160));
+$footer-icon-down-gradient = (rgb(72, 72, 72) rgb(145, 145, 145));
+
+$footer-icon-color = rgb(120, 120, 120);
+$footer-icon-down-color = rgb(145, 145, 145);
+
+.iOCSS.white div.footer,
+.iOCSS div.footer.white {
+	background: linear-gradient($footer-gradient-start, $footer-gradient-end);
+	
+	button,
+	a.button {
+		background: linear-gradient($footer-gradient-start, $footer-gradient-end);
+		
+		border-left-color: $footer-button-border-left-color;
+		border-right-color: $footer-button-border-right-color;
+		
+        i:before {
+            color: $footer-icon-color;
+		}
+		
+		&.down {
+        	box-shadow: inset 0 0.5em 2.5em rgba(0, 0, 0, 0.35);
+			
+	        i:before {
+	            color: $footer-icon-down-color;
+			}
+		}
+	}
+}

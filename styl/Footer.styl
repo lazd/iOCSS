@@ -1,30 +1,3 @@
-$footer-border-color = rgb(87, 87, 87);
-$footer-shadow-color = rgb(87, 87, 87);
-
-$footer-gradient-start = rgb(52, 52, 52);
-$footer-gradient-end = rgb(18, 18, 18);
-
-$footer-button-down-gradient-start = rgb(48, 48, 48);
-$footer-button-down-gradient-end = rgb(66, 66, 66);
-
-$footer-button-left-color = rgb(38, 38, 38);
-$footer-button-right-color = rgb(62, 62, 62);
-
-$footer-size = 3.5em;
-$footer-font-size = $footer-size - 2.75;
-
-$footer-button-text-color = rgb(153, 153, 153);
-$footer-button-down-text-color = rgb(255, 255, 255);
-
-$footer-icon-size = (1 / $footer-font-size) * $footer-size - 1.95;
-$footer-icon-height = $footer-size - 1.25;
-
-$footer-icon-gradient = (rgb(165, 165, 165) rgb(89, 89, 89));
-$footer-icon-down-gradient = (rgb(52, 130, 252) rgb(51, 196, 248));
-
-$footer-icon-color = rgb(185, 185, 185);
-$footer-icon-down-color = rgb(5, 175, 255);
-
 div.footer {
     box-horizontal();
     box-center();
@@ -46,8 +19,8 @@ div.footer {
         background: linear-gradient($footer-gradient-start, $footer-gradient-end);
         
         border: none;
-        border-left: (1 / $footer-font-size)*$px solid $footer-button-left-color;
-        border-right: (1 / $footer-font-size)*$px solid $footer-button-right-color;
+        border-left: (1 / $footer-font-size)*$px solid $footer-button-border-left-color;
+        border-right: (1 / $footer-font-size)*$px solid $footer-button-border-right-color;
         border-radius: 0;
         
         box-shadow: none;

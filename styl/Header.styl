@@ -21,7 +21,7 @@ div.header {
 		left: 0;
 		z-index: 1;
 	    
-		color: white;
+		color: $header-text-color;
 		font-weight: bold;
 		font-size: 1.25em;
 		line-height: 2.357em;
@@ -71,11 +71,11 @@ div.header {
         				0 0.1em 0.05em rgba(255, 255, 255, 0.35);
         				
 			background: linear-gradient($header-button-gradient-start, $header-button-gradient-end);
+			
+			&.default {
+				background: linear-gradient($header-button-default-gradient-start, $header-button-default-gradient-end);
+			}
 		}
 	    
-        a.button.default,
-		button.default {
-			background: linear-gradient($header-button-default-gradient-start, $header-button-default-gradient-end);
-		}
 	}
 }

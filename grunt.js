@@ -24,7 +24,7 @@ module.exports = function(grunt) {
 		},
 		watch: {
 			stylus: {
-				files: ['styl/*'],
+				files: ['styl/*', 'styl/themes/*'],
 				tasks: 'stylus'
 			}
 		}

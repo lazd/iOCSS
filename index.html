@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>iOCSS</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	
+	<!-- Ensure correct presentation on iOS -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	
+	<!-- FontAwesome Icons -->
+	<link rel="stylesheet" type="text/css" href="lib/font-awesome/font-awesome.css">
+	
+	<!-- iOCSS -->
+	<link rel="stylesheet" type="text/css" href="css/io.css">
+	
+	<script type="text/javascript">
+		function $(id) {
+			return document.getElementById(id);
+		}
+		
+		function changeSize(by) {
+			var newSize = (parseInt(document.body.style.fontSize || 14)+by)+'px';
+			
+			document.body.style.fontSize = newSize;
+			
+			$('size-current').innerHTML = newSize;
+		}
+		
+		var tabs = [
+			'about',
+			'docs',
+			'donate'
+		];
+		
+		var curTab = 'about';
+		
+		function changeTab(tab) {
+			$('tab-'+curTab).className = '';
+			$('panel-'+curTab).style.display = 'none';
+			
+			$('tab-'+tab).className = 'down';
+			$('panel-'+tab).style.display = '';
+			
+			curTab = tab;
+		};
+		
+		function addTabListener(tab) {
+			$('tab-'+tab).addEventListener('click', function() {
+				changeTab(tab);
+			});
+		}
+		
+		window.addEventListener('load', function() {
+			changeSize(0);
+			
+			$('size-decrease').addEventListener('click', function() {
+				changeSize(-2);
+			});
+			
+			$('size-increase').addEventListener('click', function() {
+				changeSize(2);
+			});
+			
+			for (var i = 0; i < tabs.length; i++) {
+				addTabListener(tabs[i])
+			}
+		});
+	</script>
+	
+	<style>
+		#size-current {
+			display: inline-block;
+			display: none;
+			vertical-align: top;
+
+			font-size: 1.75em;
+		}
+		
+		.size {
+			font-size: 0.75em;
+			float: right;
+			display: inline-block;
+			margin-left: 0.5em;
+		}
+		
+		.icon-large {
+			display: block;
+			float: left;
+			margin-right: 0.25em;
+			font-size: 3em;
+			height: 1.05em;
+			color: gray;
+		}
+		
+	</style>
+	
+</head>
+<body class="iOCSS">
+
+	<div class="frame">
+		
+		<div class="header">
+			<div>
+				<a href="https://github.com/lazd/iOCSS" class="button"><i class="icon-github"></i> Git</a>
+			</div>
+			
+			<h1>iOCSS</h1>
+			
+			<div>
+				<a href="css/io.css" download="io.css" class="button default"><i class="icon-download-alt"></i> Download</a>
+			</div>
+		</div>
+		
+		<div class="scroller">
+			
+			<div id="panel-about">
+				<div class="well">
+					<h1>iOCSS: Simple Mobile CSS</h1>
+					<p>Give your app a look and feel that closely resembles the popular mobile platform.</p>
+				</div>
+			
+				<div class="well">
+					<i class="icon-large icon-resize-full"></i>
+				
+					<h2>Fully elastic
+					<div class="size">
+						<button id="size-decrease"class="gray"><i class="icon-minus"></i></button>
+						<div id="size-current"></div>
+						<button id="size-increase"class="blue"><i class="icon-plus"></i></button>
+					</div></h2>
+				
+					<p>Built using elastic measurement units, iOCSS scales simply by increasing the font-size of the &lt;body&gt; element.</p>
+				</div>
+			
+				<div class="well">
+					<i class="icon-large icon-eye-open"></i>
+				
+					<h2>Look ma, no images!</h2>
+					<p>iOCSS is built without images, so no matter how high-resolution the next tablet or phone is, your web app will look crisp and clean.</p>
+					<p>Combine with the awesomeness of <a href="http://fortawesome.github.com/Font-Awesome/">FontAwesome</a>, and you'll have infinite scalability.</p>
+				
+				</div>
+			
+				<div class="well">
+					<i class="icon-large icon-magic"></i>
+				
+					<h2>Animate with style</h2>
+					<p>iOCSS doesn't provide JavaScript, but it does provide CSS3 animations where necessary.</p>
+				</div>
+			
+				<div class="well">
+					<i class="icon-large icon-pencil"></i>
+				
+					<h2>Simply Stylus</h2>
+					<p>Written with Stylus to be easily customizable, but compiled to minified CSS to be easily deployable.</p>
+				</div>
+			</div>
+			
+			<div id="panel-docs">
+			</div>
+			
+			<div id="panel-donate">
+			</div>
+		</div>
+		
+		<div class="footer">
+			<button id="tab-about" class="down">
+				<i class="icon-question-sign"></i>
+				About
+			</button>
+			<button id="tab-docs">
+				<i class="icon-book"></i>
+				Docs
+			</button>
+			<button id="tab-donate">
+				<i class="icon-money"></i>
+				Donate
+			</button>
+		</div>
+		
+	</div>
+	
+</body>
+</html>

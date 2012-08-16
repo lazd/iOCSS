@@ -42,7 +42,7 @@ $header-button-default-gradient-end = rgb(195, 195, 195);
 
 /* Footer
 /* --------------------------------- */
-$footer-border-color = rgb(87, 87, 87);
+$footer-border-color = rgb(205, 205, 205);
 $footer-shadow-color = rgb(87, 87, 87);
 
 $footer-gradient-start = rgb(245, 245, 245);
@@ -63,6 +63,8 @@ $footer-icon-down-color = rgb(145, 145, 145);
 .iOCSS.white div.footer,
 .iOCSS div.footer.white {
 	background: linear-gradient($footer-gradient-start, $footer-gradient-end);
+	
+    border-top: $px solid $footer-border-color;
 	
 	button,
 	a.button {

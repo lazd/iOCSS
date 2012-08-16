@@ -25,6 +25,7 @@ Written with Stylus to be easily customizable, but compiled to minified CSS to b
 2. Install dependencies
 
     `cd iOCSS`
+    
     `npm install`
 
 3. Build iOCSS with grunt

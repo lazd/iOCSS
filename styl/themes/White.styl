@@ -11,8 +11,9 @@ $header-text-shadow-color = rgb(255, 255, 255);
 $header-button-gradient-start = rgb(241, 241, 241);
 $header-button-gradient-end = rgb(215, 216, 217);
 
-$header-button-default-gradient-start = rgb(221, 221, 221);
-$header-button-default-gradient-end = rgb(195, 195, 195);
+$header-button-default-gradient-start = rgb(177, 181, 186);
+$header-button-default-gradient-end = rgb(106, 114, 125);
+$header-button-default-text-color = rgb(255, 255, 255);
 
 .iOCSS.white div.header,
 .iOCSS div.header.white {
@@ -35,7 +36,9 @@ $header-button-default-gradient-end = rgb(195, 195, 195);
 		
 		&.default {
 			background: linear-gradient($header-button-default-gradient-start, $header-button-default-gradient-end);
-			text-shadow: 0 2*$px 0 rgb(220, 220, 220);
+			
+			color: $header-button-default-text-color;
+	        text-shadow: 0 0 -($px) rgba(0, 0, 0, 0.5);
 		}
 	}
 }
@@ -57,8 +60,8 @@ $footer-text-shadow-color = $header-text-shadow-color ;
 $footer-icon-gradient = (rgb(80, 80, 80) rgb(160, 160, 160));
 $footer-icon-down-gradient = (rgb(72, 72, 72) rgb(145, 145, 145));
 
-$footer-icon-color = rgb(120, 120, 120);
-$footer-icon-down-color = rgb(145, 145, 145);
+$footer-icon-color = rgb(100, 100, 100);
+$footer-icon-down-color = rgb(95, 95, 95);
 
 .iOCSS.white div.footer,
 .iOCSS div.footer.white {
@@ -82,7 +85,10 @@ $footer-icon-down-color = rgb(145, 145, 145);
 		}
 		
 		&.down {
-			box-shadow: inset 0 0.5em 2.5em rgba(0, 0, 0, 0.35);
+			box-shadow: inset 0 1.75em 2.5em rgba(0, 0, 0, 0.2),
+			            inset 0 0.5em 0.75em rgba(0, 0, 0, 0.1);
+			
+			border-right-color: rgba(0, 0, 0, 0.175);
 			
 			color: $footer-button-text-color;
 			

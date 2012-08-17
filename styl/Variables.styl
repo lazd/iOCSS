@@ -67,7 +67,7 @@ $search-field-border-color = rgb(150, 150, 150);
 
 /* Frames
 /* --------------------------------- */
-$frame-background-color = rgb(198, 204, 212);
+$frame-background-color = rgb(202, 207, 216);
 $frame-inner-border-color = rgb(161, 167, 173);
 $frame-inner-background-color = rgb(255, 255, 255);
 $frame-highlight-color = rgb(244, 244, 244);
@@ -110,11 +110,8 @@ $button-gray-down-gradient-end-color = darken($button-gray-gradient-end-color, 1
 /* Button: Red */
 $button-red-border-color = rgba(156, 0, 0, 0.70);
 
-$button-red-gradient-start-color = rgb(255, 51, 51);
-$button-red-gradient-end-color = rgb(206, 2, 2);
-
-$button-red-down-gradient-start-color = darken($button-red-gradient-start-color, 10%);
-$button-red-down-gradient-end-color = darken($button-red-gradient-end-color, 10%);
+$button-red-gradient = rgb(226,136,137) rgb(202,43,45) rgb(197,11,13) rgb(199,31,33) rgb(175,10,12);
+$button-red-down-gradient = adjust-colors($button-red-gradient, -5%);
 
 /* Button: Round: Blue */
 $button-round-blue-gradient-start = rgb(126, 168, 231);

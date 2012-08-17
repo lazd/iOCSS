@@ -1,8 +1,22 @@
 .frame {
 	box-vertical();
 	background-color: $frame-background-color;
-	background-size: 1em;
-	background-image: linear-gradient(left, rgba(255, 255, 255, 0.075) 30%, transparent 30%, transparent);
+	background-size: 0.75em;
+	background-image: linear-gradient(left, rgba(0, 0, 0, 0.01) 31%, transparent 31%, transparent);
+
+    
+    button.large,
+    a.button.large {
+        display: block;
+        margin: 0.3em 0.6em;
+    }
+
+    button.large {
+        // TBD: why can't we figure out how to get a button to behave correctly?
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .well {
@@ -14,7 +28,7 @@
 	background: $frame-inner-background-color;
 	
 	box-shadow: 0 0.125em 0 $frame-highlight-color,
-	            inset 0 0.15em 0.2em rgba(0, 0, 0, 0.15);
+	            inset 0 0.1em 0.2em rgba(0, 0, 0, 0.25);
 
 	border: $px solid $frame-inner-border-color;
 	border-radius: 1em;

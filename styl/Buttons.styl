@@ -21,6 +21,9 @@ a.button {
 	font-weight: bold;
 	text-shadow: 0 0 -($px) rgba(0, 0, 0, 0.5);
 	text-decoration: none; /* Reset underline on a.button */
+	text-align: center;
+	
+	user-select: none;
 	
 	cursor: pointer;
 }
@@ -30,6 +33,7 @@ a.button:active {
 	background: linear-gradient($button-gray-down-gradient-start-color, $button-gray-down-gradient-end-color);
 }
 
+a.button.large,
 button.large {
     font-size: 1.5em;
 }
@@ -53,14 +57,14 @@ button.red,
 a.button.red {
 	border-color: $button-red-border-color;
 	
-	//background: linear-gradient($button-red-gradient-start-color, $button-red-gradient-end-color);
-	background: linear-gradient(top, #e28889 0%,#ca2b2d 50%,#c50b0d 51%,#c71f21 76%,#af0a0c 100%);
+    gradient-shiny($button-red-gradient);
 }
 
 button.red:active,
 a.button.red:active {
-	background: linear-gradient($button-red-down-gradient-start-color, $button-red-down-gradient-end-color);
+    gradient-shiny($button-red-down-gradient);
 }
+
 
 /* Button: round */
 button.round,

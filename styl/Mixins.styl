@@ -1,3 +1,12 @@
+adjust-colors(list, by = 10%) {
+    newList = ()
+    for color in list {
+        push(newList, lighten(color, by))
+    }
+    
+    return newList
+}
+
 // Enable iOS scrolling
 scrollable() {
 	overflow-y: auto;
@@ -7,6 +16,11 @@ scrollable() {
 // Box sizing
 border-box() {
 	box-sizing: border-box;
+}
+
+// Button colors
+gradient-shiny($colors) {
+    background-image: linear-gradient(top, $colors[0] 0%, $colors[1] 50%, $colors[2] 51%, $colors[3] 76%, $colors[4] 100%);
 }
 
 /*

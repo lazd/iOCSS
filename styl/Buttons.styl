@@ -162,42 +162,77 @@ a.button {
 		border-bottom-left-radius: 0.925em !important;
 		
 		&:before {
-		    position: absolute;
-		    top: 0.225em;
-		    left: -0.325em;
-		
-			background-image:
-		        -webkit-gradient(linear, left bottom, right top,
-		            from($header-button-gradient[1]),
-		            to($header-button-gradient[0]));
+			position: absolute;
+			top: 0.21em;
+			left: -0.275em;
 			
+			height: 1.695em;
+			width: 1.695em;
+		
+			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-gradient[1]), to($header-button-gradient[0]));
+			
+			transform : rotate(-45deg) skew(-10deg, -10deg);
+			border-top-right-radius : 7.143em 2.857em;
+			border-top-left-radius : 2.143em 0.143em;
+			border-bottom-right-radius : 0.143em 2.143em;
+			border-bottom-left-radius : 2.857em 7.143em;
+		
+			z-index: 1;
+			content: '';
+		
+			box-shadow: $px $px 0 rgba(0,0,0,0.15) inset,
+						-($px) $px $px rgba(0,0,0,0.25) inset,
+						-($px) -($px) $px rgba(255,255,255,0.85);
+		
+			border-left: $px solid rgba(255,255,255,0.3);
 
-		    height: 1.75em;
-		    width: 1.75em;
-		
-		    transform : rotate(-45deg) skew(-10deg, -10deg);
-		    border-top-right-radius : 7.143em 2.857em;
-		    border-top-left-radius : 2.143em 0.143em;
-		    border-bottom-right-radius : 0.143em 2.143em;
-		    border-bottom-left-radius : 2.857em 7.143em;
-		
-		    z-index: 1;
-		    content: '';
-		
-		    box-shadow: $px $px 0 rgba(0,0,0,0.15) inset,
-		        		-($px) $px $px rgba(0,0,0,0.25) inset,
-		        		-($px) -($px) $px rgba(255,255,255,0.85);
-		
-    		border-left: $px solid rgba(255,255,255,0.3);
-
-		    -webkit-mask-image: -webkit-gradient(linear, left top, right bottom,
-		            from(black),
-		            color-stop(0.35, black),
-		            color-stop(0.5, transparent),
-		            to(transparent));
+			-webkit-mask-image: -webkit-gradient(linear, left top, right bottom,
+					from(black),
+					color-stop(0.35, black),
+					color-stop(0.5, transparent),
+					to(transparent));
 		}
 	}
 
+	&.forward {
+		position: relative;
+		margin-right: 0.65em !important;
+		
+		border-top-right-radius: 0.925em !important;
+		border-bottom-right-radius: 0.925em !important;
+		
+		&:after {
+			position: absolute;
+			top: 0.21em;
+			right: -0.275em;
+			
+			height: 1.695em;
+			width: 1.695em;
+		
+			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-gradient[0]), to($header-button-gradient[1]));
+			
+			transform : rotate(135deg) skew(-10deg, -10deg);
+			border-top-right-radius : 7.143em 2.857em;
+			border-top-left-radius : 2.143em 0.143em;
+			border-bottom-right-radius : 0.143em 2.143em;
+			border-bottom-left-radius : 2.857em 7.143em;
+		
+			z-index: 1;
+			content: '';
+			
+			box-shadow: $px -1*$px 0 rgba(0,0,0,0.15) inset,
+						$px $px $px rgba(0,0,0,0.25) inset,
+						$px -1*$px $px rgba(255,255,255,0.85);
+					
+			border-top: $px solid rgba(255,255,255,0.3);
+
+			-webkit-mask-image: -webkit-gradient(linear, left top, right bottom,
+					from(black),
+					color-stop(0.35, black),
+					color-stop(0.5, transparent),
+					to(transparent));
+		}
+	}
 
 	/* Button: Disabled */
 	&.disabled,

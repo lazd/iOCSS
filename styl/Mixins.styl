@@ -18,9 +18,13 @@ border-box() {
 	box-sizing: border-box;
 }
 
-// Button colors
+// Gradients
 gradient-shiny($colors) {
     background-image: linear-gradient(top, $colors[0] 0%, $colors[1] 50%, $colors[2] 51%, $colors[3] 76%, $colors[4] 100%);
+}
+
+gradient($colors) {
+	background: linear-gradient($colors[0], $colors[1]);
 }
 
 /*

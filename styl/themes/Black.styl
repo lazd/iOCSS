@@ -1,0 +1,57 @@
+/* Header
+/* --------------------------------- */
+$header-gradient = rgb(78, 78, 78) rgb(27, 27, 27);
+
+$header-border-color = rgb(10, 10, 10);
+
+$header-text-color = rgb(193, 193, 193);
+$header-text-shadow-color = rgb(255, 255, 255);
+
+$header-button-gradient = rgb(85, 85, 85) rgb(25, 25, 25);
+$header-button-down-gradient = adjust-colors($header-button-gradient, 5%);
+
+$header-button-default-gradient = rgb(138, 172, 236) rgb(38, 100, 221);
+$header-button-default-down-gradient = adjust-colors($header-button-default-gradient, -4%);
+
+.iOCSS.black div.header,
+.iOCSS div.header.black {
+	gradient($header-gradient);
+	
+	border-bottom-color: $header-border-color;
+	
+	// Helps buttons look aligned since we're using box shadow for borders
+	// > div {
+	// 	padding-bottom: 0.125em;
+	// }
+	
+	h1 {
+		color: $header-text-color;
+	}
+	
+	a.button,
+	button {
+		gradient($header-button-gradient);
+		
+		color: $header-text-color;
+		
+		&.default {
+			color: $header-button-default-text-color;
+		
+			&:active {
+				gradient($header-button-default-down-gradient);
+			}
+		
+			&.back:before {
+				background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-gradient[1]), to($header-button-default-gradient[0]));
+			}
+		}
+		
+		&:active {
+			gradient($header-button-down-gradient);
+		}
+		
+		&.back:before {
+			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-gradient[1]), to($header-button-gradient[0]));
+		}
+	}
+}

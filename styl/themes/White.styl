@@ -1,44 +1,59 @@
 /* Header
 /* --------------------------------- */
-$header-gradient-start = rgb(246, 246, 246);
-$header-gradient-end = rgb(220, 223, 223);
+$header-gradient = rgb(246, 246, 246) rgb(220, 223, 223);
 
 $header-border-color = rgb(170, 170, 170);
 
 $header-text-color = rgb(71, 71, 71);
 $header-text-shadow-color = rgb(255, 255, 255);
 
-$header-button-gradient-start = rgb(241, 241, 241);
-$header-button-gradient-end = rgb(215, 216, 217);
+$header-button-gradient = rgb(241, 241, 241) rgb(215, 216, 217);
+$header-button-down-gradient = adjust-colors($header-button-gradient, -5%);
 
-$header-button-default-gradient-start = rgb(177, 181, 186);
-$header-button-default-gradient-end = rgb(106, 114, 125);
+$header-button-default-gradient = rgb(177, 181, 186) rgb(106, 114, 125);
+$header-button-default-down-gradient = adjust-colors($header-button-default-gradient, -5%);
 $header-button-default-text-color = rgb(255, 255, 255);
 
 .iOCSS.white div.header,
 .iOCSS div.header.white {
-	background: linear-gradient($header-gradient-start, $header-gradient-end);
+	gradient($header-gradient);
 	
 	border-bottom-color: $header-border-color;
 	
 	h1 {
 		color: $header-text-color;
 		
-		text-shadow: 0 2*$px 0 $header-text-shadow-color;
+		text-shadow: 0 $px 0 $header-text-shadow-color;
 	}
 	
 	a.button,
 	button {
-		background: linear-gradient($header-button-gradient-start, $header-button-gradient-end);
+		gradient($header-button-gradient);
 		
 		color: $header-text-color;
-		text-shadow: 0 2*$px 0 $header-text-shadow-color;
+		text-shadow: 0 $px 0 $header-text-shadow-color;
 		
 		&.default {
-			background: linear-gradient($header-button-default-gradient-start, $header-button-default-gradient-end);
+			gradient($header-button-default-gradient);
 			
 			color: $header-button-default-text-color;
 	        text-shadow: 0 0 -($px) rgba(0, 0, 0, 0.5);
+	
+			&:active {
+				gradient($header-button-default-down-gradient);
+			}
+		
+			&.back:before {
+				background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-gradient[1]), to($header-button-default-gradient[0]));
+			}
+		}
+		
+		&:active {
+			gradient($header-button-down-gradient);
+		}
+		
+		&.back:before {
+			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-gradient[1]), to($header-button-gradient[0]));
 		}
 	}
 }
@@ -48,8 +63,9 @@ $header-button-default-text-color = rgb(255, 255, 255);
 $footer-border-color = rgb(205, 205, 205);
 $footer-shadow-color = rgb(87, 87, 87);
 
-$footer-gradient-start = rgb(245, 245, 245);
-$footer-gradient-end = rgb(221, 221, 221);
+$footer-gradient = rgb(245, 245, 245) rgb(221, 221, 221);
+
+$footer-button-down-gradient = rgb(197, 197, 197) rgb(225, 225, 225);
 
 $footer-button-border-left-color = rgb(180, 180, 180);
 $footer-button-border-right-color = rgb(246, 246, 246);
@@ -57,43 +73,66 @@ $footer-button-border-right-color = rgb(246, 246, 246);
 $footer-button-text-color = rgb(71, 71, 71);
 $footer-text-shadow-color = $header-text-shadow-color ;
 
-$footer-icon-gradient = (rgb(80, 80, 80) rgb(160, 160, 160));
-$footer-icon-down-gradient = (rgb(72, 72, 72) rgb(145, 145, 145));
+$footer-icon-gradient = rgb(80, 80, 80) rgb(160, 160, 160);
+$footer-icon-down-gradient = rgb(72, 72, 72) rgb(145, 145, 145);
 
 $footer-icon-color = rgb(100, 100, 100);
 $footer-icon-down-color = rgb(95, 95, 95);
 
 .iOCSS.white div.footer,
 .iOCSS div.footer.white {
-	background: linear-gradient($footer-gradient-start, $footer-gradient-end);
+	gradient($footer-gradient);
 	
     border-top: $px solid $footer-border-color;
-	
+			
 	button,
 	a.button {
-		background: linear-gradient($footer-gradient-start, $footer-gradient-end);
+		gradient($footer-gradient);
 		
 		color: $footer-button-text-color;
 		
-		text-shadow: 0 2*$px 0 $footer-text-shadow-color;
+		text-shadow: 0 $px 0 $footer-text-shadow-color;
 		
 		border-left-color: $footer-button-border-left-color;
-		border-right-color: $footer-button-border-right-color;
+		border-right: none;
+
+		box-shadow: inset -0.1em 0 0 white;
+		
+		&:last-child {
+			box-shadow: none;
+		}
 		
 		i:before {
 			color: $footer-icon-color;
 		}
 		
 		&.down {
-			box-shadow: inset 0 1.75em 2.5em rgba(0, 0, 0, 0.2),
-			            inset 0 0.5em 0.75em rgba(0, 0, 0, 0.1);
-			
+			position: relative;
 			border-right-color: rgba(0, 0, 0, 0.175);
+			
+			box-shadow: inset -0.1em 0 0 rgba(255, 255, 255, 0.3);
+			
+			gradient($footer-button-down-gradient);
 			
 			color: $footer-button-text-color;
 			
 			i:before {
 				color: $footer-icon-down-color;
+			}
+			
+			&:after {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				
+				box-shadow: 0 0 0.75em rgba(0, 0, 0, 0.15) inset,
+							0 -0.214em 1.25em rgba(0, 0, 0, 0.4) inset;
+							
+				-webkit-mask: -webkit-linear-gradient(top, black, transparent);
+				
+				content: "";
 			}
 		}
 	}

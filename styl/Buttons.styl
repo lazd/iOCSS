@@ -101,7 +101,6 @@ a.button {
 
 
 	/* Button: round */
-	&.round,
 	&.round {
 		position: relative;
 		border-box();
@@ -143,11 +142,21 @@ a.button {
 			    gradient($button-round-red-down-gradient);
 			}
 		}
+		
+		&.unlockDelete {
+			transition: all 0.075s ease-in;
+			
+			&.unlocked {
+				transform: rotate(-90deg);
+				
+				margin-top: 0.0000001em; // Fix a Chrome bug when toggling the rotation a few times
+			}
+		}
 	}
 	
 	&.back {
 		position: relative;
-		margin-left: 0.85em !important;
+		margin-left: 0.65em !important;
 		
 		border-top-left-radius: 0.925em !important;
 		border-bottom-left-radius: 0.925em !important;

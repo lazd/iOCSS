@@ -63,6 +63,8 @@
 				var hashTab = window.location.hash.slice(1);
 				if (tabs.indexOf && ~tabs.indexOf(hashTab))
 					changeTab(hashTab);
+				else
+					changeTab(tabs[0]);
 			}
 		
 			window.addEventListener('load', function() {
@@ -80,9 +82,13 @@
 					addTabListener(tabs[i])
 				}
 			
-				if (window.location.hash) {
-					setTabFromHash();
-				}
+				setTabFromHash();
+				
+				document.addEventListener("click", function(evt) {
+					if (evt.target.className.match(/changeTheme/))
+						document.body.className = 'iOCSS '+(evt.target.id || '');
+				});
+				
 			
 				window.addEventListener("hashchange", setTabFromHash);
 			});
@@ -100,7 +106,6 @@
 		}
 		
 		.size {
-			font-size: 0.75em;
 			float: right;
 			display: inline-block;
 			margin-left: 0.5em;
@@ -118,7 +123,7 @@
 		}
 		
 		.paypal {
-			margin: 1em 0 0 1em;
+			padding: 0 1em;
 		}
 		
 		ol li {
@@ -138,10 +143,17 @@
 			border: 0.1em solid #aaa;
 		}
 		
+		.right {
+			float: right;
+		}
+		.clear {
+			clear: both;
+		}
+		
 	</style>
 	
 </head>
-<body class="iOCSS" onload="prettyPrint()">
+<body class="iOCSS white" onload="prettyPrint()">
 
 	<div class="frame">
 		
@@ -159,7 +171,7 @@
 		
 		<div class="scroller">
 			
-			<div id="panel-about">
+			<div style="display: none;" id="panel-about">
 				<div class="well">
 					<h1>iOCSS: Simple Mobile CSS</h1>
 					<p>Give your app a look and feel that closely resembles the popular mobile platform.</p>
@@ -170,20 +182,34 @@
 				
 					<h2>Fully elastic
 					<div class="size">
-						<button id="size-decrease"class="gray"><i class="icon-minus"></i></button>
+						<button id="size-decrease"class="gray round"><i class="icon-minus"></i></button>
 						<div id="size-current"></div>
-						<button id="size-increase"class="blue"><i class="icon-plus"></i></button>
+						<button id="size-increase"class="blue round"><i class="icon-plus"></i></button>
 					</div></h2>
 				
 					<p>Built using elastic measurement units, iOCSS scales simply by increasing the font-size of the &lt;body&gt; element.</p>
 				</div>
 			
 				<div class="well">
+					<div class="clear right">
+						<a class="button blue changeTheme">Blue</a>
+						<a id="black" class="button black changeTheme">Black</a>
+						<a id="white" class="button changeTheme">White</a>
+					</div>
+					
+					<i class="icon-large icon-wrench"></i>
+				
+					<h2>3 Color Themes</h2>
+					<p>iOCSS provides three common color themes.</p>
+				
+				</div>
+				
+				<div class="well">
 					<i class="icon-large icon-eye-open"></i>
 				
 					<h2>Look ma, no images!</h2>
 					<p>iOCSS is built without images, so no matter how high-resolution the next tablet or phone is, your web app will look crisp and clean.</p>
-					<p>Combine with the awesomeness of <a href="http://fortawesome.github.com/Font-Awesome/">FontAwesome</a>, and you'll have infinite scalability.</p>
+					<p>Add the awesomeness of <a href="http://fortawesome.github.com/Font-Awesome/">FontAwesome</a>, and you'll have infinite scalability.</p>
 				
 				</div>
 			
@@ -246,18 +272,17 @@
 				
 				<div class="well">
 					<h1>Donate</h1>
-					<p>Do you use iOCSS in your project? Consider sending us a small token of your appreciation.</p>
-					
-					<form class="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-						<input type="hidden" name="cmd" value="_s-xclick">
-						<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
-						">
-						<button class="blue large" type="submit" name="submit" alt="PayPal - The safer, easier way to pay online!">Donate with PayPal</button>
-						<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-					</form>
-
+					<p>Do you use iOCSS in your project? Consider sending a token of your appreciation.</p>
 				</div>
-				
+			
+				<form class="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+					<input type="hidden" name="cmd" value="_s-xclick">
+					<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+					">
+					<button class="green large" type="submit" name="submit" alt="PayPal - The safer, easier way to pay online!">Donate with PayPal</button>
+					<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+				</form>
+
 			</div>
 		</div>
 		
@@ -273,6 +298,7 @@
 			<button id="tab-donate">
 				<i class="icon-money"></i>
 				Donate
+				<div class="badge">$5</div>
 			</button>
 		</div>
 		

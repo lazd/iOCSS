@@ -1,12 +1,13 @@
 /* Button: Default: Gray */
 button,
 a.button {
+	display: inline-block;
 	padding: 0.5em 0.75em;
 
 	border: $px solid rgb(110, 110, 110);
 	border-radius: 0.35em;
 
-	background: linear-gradient($button-gray-gradient-start-color, $button-gray-gradient-end-color);
+	gradient($button-gray-gradient);
 	
 	box-shadow: inset 0 0.05em 0.05em rgba(255, 255, 255, 0.55),
 	            inset 0 -0.05em 0.05em rgba(255, 255, 255, 0.15),
@@ -26,104 +27,181 @@ a.button {
 	user-select: none;
 	
 	cursor: pointer;
-}
-
-button:active,
-a.button:active {
-	background: linear-gradient($button-gray-down-gradient-start-color, $button-gray-down-gradient-end-color);
-}
-
-a.button.large,
-button.large {
-    font-size: 1.5em;
-}
-
-/* Button: blue */
-button.blue,
-a.button.blue {
-	border-color: $button-blue-border-color;
 	
-	background: linear-gradient($button-blue-gradient-start-color, $button-blue-gradient-end-color);
-}
-
-button.blue:active,
-a.button.blue:active {
-	background: linear-gradient($button-blue-down-gradient-start-color, $button-blue-down-gradient-end-color);
-}
-
-
-/* Button: red */
-button.red,
-a.button.red {
-	border-color: $button-red-border-color;
+	.badge {
+		position: absolute;
+		right: 0.1em;
+		top: 0.1em;
+		z-index: 1;
+		
+		font-size: 0.9em;
+	}
 	
-    gradient-shiny($button-red-gradient);
-}
-
-button.red:active,
-a.button.red:active {
-    gradient-shiny($button-red-down-gradient);
-}
-
-
-/* Button: round */
-button.round,
-a.button.round {
-	border-box();
+	&:active {
+		gradient($button-gray-down-gradient);
+	}
 	
-	margin: 0.8em 0 0 0.8em;
-	padding: 0;
-	width: 1.75em;
-	height: 1.75em;
+
+	// Large button
+	&.large {
+	    font-size: 1.5em;
 	
-	overflow: hidden;
-    
-	border: 0.175em solid white;
-	border-radius: 1em;
-
-	color: white;
-	line-height: 1.525em;
-	text-align: center;
-
-	box-shadow: 0 0 0.4em rgba(0,0,0,0.5);
-
-	text-shadow: 0 0 -($px) rgba(0, 0, 0, 0.2);
-	
-	i {
-		font-size: 1.2em;
+		& i {
+			font-size: 1.35em;
+			vertical-align: middle;
+			line-height: 0.5em;
+			margin-right: 0.1em;
+		}
 	}
 
+
+	/* Button: blue */
 	&.blue {
-		background: linear-gradient($button-round-blue-gradient-start, $button-round-blue-gradient-end);
-		
-		&:active {
-		    background: linear-gradient($button-round-blue-down-gradient-start, $button-round-blue-down-gradient-end);
-		}
-	}
-
-	&.red {
-		background: linear-gradient($button-round-red-gradient-start, $button-round-red-gradient-end);
-		
-		&:active {
-		    background: linear-gradient($button-round-red-down-gradient-start, $button-round-red-down-gradient-end);
-		}
-	}
-}
-
-
-/* Button: Disabled */
-button.disabled,
-button:disabled,
-a.button.disabled,
-button.disabled:active,
-button:disabled:active,
-a.button.disabled:active {
-	border-color: $button-disabled-border-color;
-
-	box-shadow: inset 0 -($px) $px rgba(0, 0, 0, 0.05),
-				inset 0 $px 2*$px rgba(0, 0, 0, 0.1);
-				
-	background: linear-gradient($button-disabled-gradient-start-color, $button-disabled-gradient-end-color);
+		border-color: $button-blue-border-color;
 	
-	cursor: default;
+		gradient-shiny($button-blue-gradient);
+
+		&:active {
+			gradient-shiny($button-blue-down-gradient);
+		}
+	}
+
+	/* Button: green */
+	&.green {
+		border-color: $button-green-border-color;
+	
+		gradient-shiny($button-green-gradient);
+
+		&:active {
+			gradient-shiny($button-green-down-gradient);
+		}
+	}
+	
+	/* Button: black */
+	&.black {
+		border-color: $button-black-border-color;
+	
+		gradient($button-black-gradient);
+
+		&:active {
+			gradient($button-black-down-gradient);
+		}
+	}
+
+	/* Button: red */
+	&.red {
+		border-color: $button-red-border-color;
+	
+	    gradient-shiny($button-red-gradient);
+	
+		&:active {
+		    gradient-shiny($button-red-down-gradient);
+		}
+	}
+
+
+	/* Button: round */
+	&.round,
+	&.round {
+		position: relative;
+		border-box();
+	
+		margin: 0.8em 0 0 0.8em;
+		padding: 0;
+		width: 1.675em;
+		height: 1.675em;
+	
+		overflow: hidden;
+    
+		border: 0.175em solid white;
+		border-radius: 1em;
+
+		color: white;
+		line-height: 1.475em;
+		text-align: center;
+
+		box-shadow: 0 0 0.4em rgba(0,0,0,0.5);
+
+		text-shadow: 0 0 -($px) rgba(0, 0, 0, 0.2);
+	
+		i {
+			font-size: 1.15em;
+		}
+
+		&.blue {
+			gradient($button-round-blue-gradient);
+		
+			&:active {
+			    gradient($button-round-blue-down-gradient);
+			}
+		}
+
+		&.red {
+			gradient($button-round-red-gradient);
+		
+			&:active {
+			    gradient($button-round-red-down-gradient);
+			}
+		}
+	}
+	
+	&.back {
+		position: relative;
+		margin-left: 0.85em !important;
+		
+		border-top-left-radius: 0.925em !important;
+		border-bottom-left-radius: 0.925em !important;
+		
+		&:before {
+		    position: absolute;
+		    top: 0.225em;
+		    left: -0.325em;
+		
+			background-image:
+		        -webkit-gradient(linear, left bottom, right top,
+		            from($header-button-gradient[1]),
+		            to($header-button-gradient[0]));
+			
+
+		    height: 1.75em;
+		    width: 1.75em;
+		
+		    transform : rotate(-45deg) skew(-10deg, -10deg);
+		    border-top-right-radius : 7.143em 2.857em;
+		    border-top-left-radius : 2.143em 0.143em;
+		    border-bottom-right-radius : 0.143em 2.143em;
+		    border-bottom-left-radius : 2.857em 7.143em;
+		
+		    z-index: 1;
+		    content: '';
+		
+		    box-shadow: $px $px 0 rgba(0,0,0,0.15) inset,
+		        		-($px) $px $px rgba(0,0,0,0.25) inset,
+		        		-($px) -($px) $px rgba(255,255,255,0.85);
+		
+    		border-left: $px solid rgba(255,255,255,0.3);
+
+		    -webkit-mask-image: -webkit-gradient(linear, left top, right bottom,
+		            from(black),
+		            color-stop(0.35, black),
+		            color-stop(0.5, transparent),
+		            to(transparent));
+		}
+	}
+
+
+	/* Button: Disabled */
+	&.disabled,
+	&:disabled,
+	&:disabled:active,
+	&.disabled:active {
+		border-color: $button-disabled-border-color;
+
+		box-shadow: inset 0 -($px) $px rgba(0, 0, 0, 0.05),
+					inset 0 $px 2*$px rgba(0, 0, 0, 0.1);
+				
+		gradient($button-disabled-gradient);
+	
+		cursor: default;
+	}
 }

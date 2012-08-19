@@ -12,34 +12,31 @@ $base-font = Helvetica;
 
 /* Header
 /* --------------------------------- */
-$header-height = 3em;
+$header-height = 2.7em;
 $header-border-color = rgb(56, 85, 112);
-$header-gradient-start = rgb(177, 191, 211);
-$header-gradient-end = rgb(91, 116, 151);
+$header-gradient = rgb(177, 191, 211) rgb(91, 116, 151);
 $header-shadow-color = rgba(0, 0, 0, 0.1);
 
 $header-text-color = rgb(255, 255, 255);
-$header-text-shadow-color = rgba(0, 0, 0, 0.75);
+$header-text-shadow-color = rgba(0, 0, 0, 0.45);
 
-$header-button-gradient-start = rgb(154, 170, 194);
-$header-button-gradient-end = rgb(69, 98, 141);
+$header-button-gradient = rgb(154, 170, 194) rgb(69, 98, 141);
+$header-button-down-gradient = adjust-colors($header-button-gradient, -5%);
 
-$header-button-default-gradient-start = rgb(143, 174, 237);
-$header-button-default-gradient-end = rgb(59, 105, 220);
+$header-button-default-gradient = rgb(138, 172, 236) rgb(38, 100, 221);
+$header-button-default-down-gradient = adjust-colors($header-button-default-gradient, -4%);
+
 
 /* Footer
 /* --------------------------------- */
 $footer-border-color = rgb(87, 87, 87);
 $footer-shadow-color = rgb(87, 87, 87);
 
-$footer-gradient-start = rgb(52, 52, 52);
-$footer-gradient-end = rgb(18, 18, 18);
+$footer-gradient = rgb(66, 66, 66) rgb(24, 24, 24);
 
-$footer-button-down-gradient-start = rgb(48, 48, 48);
-$footer-button-down-gradient-end = rgb(66, 66, 66);
+$footer-button-down-gradient = rgb(48, 48, 48) rgb(68, 68, 68);
 
-$footer-button-border-left-color = rgb(38, 38, 38);
-$footer-button-border-right-color = rgb(62, 62, 62);
+$footer-button-border-left-color = rgb(33, 33, 33);
 
 $footer-size = 3.5em;
 $footer-font-size = $footer-size - 2.75;
@@ -50,8 +47,8 @@ $footer-button-down-text-color = rgb(255, 255, 255);
 $footer-icon-size = (1 / $footer-font-size) * $footer-size - 1.95;
 $footer-icon-height = $footer-size - 1.25;
 
-$footer-icon-gradient = (rgb(165, 165, 165) rgb(89, 89, 89));
-$footer-icon-down-gradient = (rgb(52, 130, 252) rgb(51, 196, 248));
+$footer-icon-gradient = rgb(165, 165, 165) rgb(89, 89, 89);
+$footer-icon-down-gradient = rgb(52, 130, 252) rgb(51, 196, 248);
 
 $footer-icon-color = rgb(185, 185, 185);
 $footer-icon-down-color = rgb(5, 175, 255);
@@ -60,8 +57,7 @@ $footer-icon-down-color = rgb(5, 175, 255);
 /* Search
 /* --------------------------------- */
 $search-icon-color = rgb(150, 155, 161);
-$search-gradient-start = rgb(224, 228, 231);
-$search-gradient-end = rgb(180, 190, 198);
+$search-gradient = rgb(224, 228, 231) rgb(180, 190, 198);
 $search-field-border-color = rgb(150, 150, 150);
 
 
@@ -84,6 +80,11 @@ $editor-label-text-color = rgb(81, 102, 145);
 $list-border-color = rgb(224, 224, 224);
 
 
+/* Badge
+/* --------------------------------- */
+$badge-red-gradient = rgb(249, 186, 189) rgb(231, 38, 48) rgb(231, 38, 48) rgb(226, 4, 15) rgb(197, 1, 3);
+
+
 /* Buttons
 /* --------------------------------- */
 $button-font = $base-font;
@@ -92,20 +93,26 @@ $button-text-color = rgb(255, 255, 255);
 /* Button: Blue */
 $button-blue-border-color = rgba(14, 64, 107, 0.70);
 
-$button-blue-gradient-start-color = rgb(80, 163, 226);
-$button-blue-gradient-end-color = rgb(36, 127, 204);
+$button-blue-gradient = rgb(119,155,233) rgb(55,111,224) rgb(38,100,219) rgb(34,96,221) rgb(36,99,222);
+$button-blue-down-gradient = adjust-colors($button-blue-gradient, -10%);
 
-$button-blue-down-gradient-start-color = darken($button-blue-gradient-start-color, 10%);
-$button-blue-down-gradient-end-color = darken($button-blue-gradient-end-color, 10%);
+/* Button: Green */
+$button-green-border-color = rgba(14, 107, 64, 0.70);
+
+$button-green-gradient = rgb(136,226,137) rgb(43,202,45) rgb(11,197,13) rgb(31,199,33) rgb(10,175,12);
+$button-green-down-gradient = adjust-colors($button-green-gradient, -10%);
+
+/* Button: Black */
+$button-black-border-color = rgba(0, 0, 0, 0.70);
+
+$button-black-gradient = rgb(68, 68, 68) rgb(20, 20, 20);
+$button-black-down-gradient = adjust-colors($button-black-gradient, -10%);
 
 /* Button: Gray */
 $button-gray-border-color = rgba(51, 51, 51, 0.50);
 
-$button-gray-gradient-start-color = rgb(206, 206, 206);
-$button-gray-gradient-end-color = rgb(156, 156, 156);
-
-$button-gray-down-gradient-start-color = darken($button-gray-gradient-start-color, 10%);
-$button-gray-down-gradient-end-color = darken($button-gray-gradient-end-color, 10%);
+$button-gray-gradient = rgb(206, 206, 206) rgb(156, 156, 156);
+$button-gray-down-gradient = adjust-colors($button-gray-gradient, -10%);
 
 /* Button: Red */
 $button-red-border-color = rgba(156, 0, 0, 0.70);
@@ -114,21 +121,13 @@ $button-red-gradient = rgb(226,136,137) rgb(202,43,45) rgb(197,11,13) rgb(199,31
 $button-red-down-gradient = adjust-colors($button-red-gradient, -5%);
 
 /* Button: Round: Blue */
-$button-round-blue-gradient-start = rgb(126, 168, 231);
-$button-round-blue-gradient-end = rgb(55, 113, 215);
-
-$button-round-blue-down-gradient-start = darken($button-round-blue-gradient-start, 10%);
-$button-round-blue-down-gradient-end = darken($button-round-blue-gradient-end, 10%);
+$button-round-blue-gradient = rgb(126, 168, 231) rgb(55, 113, 215);
+$button-round-blue-down-gradient = adjust-colors($button-round-blue-gradient, -10%);
 
 /* Button: Round: Red */
-$button-round-red-gradient-start = rgb(227, 121, 128);
-$button-round-red-gradient-end = rgb(190, 25, 34);
-
-$button-round-red-down-gradient-start = darken($button-round-red-gradient-start, 10%);
-$button-round-red-down-gradient-end = darken($button-round-red-gradient-end, 10%);
+$button-round-red-gradient = rgb(227, 121, 128) rgb(190, 25, 34);
+$button-round-red-down-gradient = adjust-colors($button-round-red-gradient, -10%);
 
 /* Button: Disabled */
 $button-disabled-border-color = rgba(51, 51, 51, 0.20);
-
-$button-disabled-gradient-start-color = rgb(223, 223, 223);
-$button-disabled-gradient-end-color = rgb(208, 208, 208);
+$button-disabled-gradient = rgb(223, 223, 223) rgb(208, 208, 208);

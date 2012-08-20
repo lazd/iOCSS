@@ -33,6 +33,10 @@ $header-button-default-text-color = rgb(255, 255, 255);
 		color: $header-text-color;
 		text-shadow: 0 $px 0 $header-text-shadow-color;
 		
+		&:active {
+			gradient($header-button-down-gradient);
+		}
+		
 		&.default {
 			gradient($header-button-default-gradient);
 			
@@ -46,22 +50,34 @@ $header-button-default-text-color = rgb(255, 255, 255);
 			&.back:before {
 				background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-gradient[1]), to($header-button-default-gradient[0]));
 			}
-		
+			
+			&.back:active:before {
+				background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-down-gradient[1]), to($header-button-default-down-gradient[0]));
+			}
+			
 			&.forward:before {
 				background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-gradient[0]), to($header-button-default-gradient[1]));
 			}
-		}
-		
-		&:active {
-			gradient($header-button-down-gradient);
+			
+			&.forward:active:before {
+				background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-down-gradient[0]), to($header-button-default-down-gradient[1]));
+			}
 		}
 		
 		&.back:before {
 			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-gradient[1]), to($header-button-gradient[0]));
 		}
 		
+		&.back:active:before {
+			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-down-gradient[1]), to($header-button-down-gradient[0]));
+		}
+		
 		&.forward:before {
 			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-gradient[0]), to($header-button-gradient[1]));
+		}
+		
+		&.forward:active:before {
+			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-down-gradient[0]), to($header-button-down-gradient[1]));
 		}
 	}
 }

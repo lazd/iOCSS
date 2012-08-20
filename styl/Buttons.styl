@@ -192,13 +192,18 @@ a.button {
 						-($px) $px $px rgba(0,0,0,0.25) inset,
 						-($px) -($px) $px rgba(255,255,255,0.85);
 		
-			border-left: $px solid rgba(255,255,255,0.3);
+			border-left: $px solid rgba(255,255,255,0.1);
+			// border-left: $px solid rgb(160,175,199);
 
 			-webkit-mask-image: -webkit-gradient(linear, left top, right bottom,
 					from(black),
 					color-stop(0.35, black),
 					color-stop(0.5, transparent),
 					to(transparent));
+			
+			&:active {
+				background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-down-gradient[1]), to($header-button-down-gradient[0]));
+			}
 		}
 	}
 
@@ -220,13 +225,18 @@ a.button {
 						$px $px $px rgba(0,0,0,0.25) inset,
 						$px -1*$px $px rgba(255,255,255,0.85);
 					
-			border-top: $px solid rgba(255,255,255,0.3);
+			border-top: $px solid rgba(255,255,255,0.1);
+			// border-top: $px solid rgb(160,175,199);
 
 			-webkit-mask-image: -webkit-gradient(linear, left top, right bottom,
 					from(black),
 					color-stop(0.35, black),
 					color-stop(0.5, transparent),
 					to(transparent));
+					
+			&:active {
+				background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-down-gradient[0]), to($header-button-down-gradient[1]));
+			}
 		}
 	}
 

@@ -188,7 +188,7 @@ a.button {
 			
 			transform: rotate(-45deg) skew(-10deg, -10deg);
 		
-			box-shadow: $px $px 0 rgba(0,0,0,0.15) inset,
+			box-shadow: $px $px 0 rgba(0,0,0,0.35) inset,
 						-($px) $px $px rgba(0,0,0,0.25) inset,
 						-($px) -($px) $px rgba(255,255,255,0.85);
 		
@@ -200,10 +200,10 @@ a.button {
 					color-stop(0.35, black),
 					color-stop(0.5, transparent),
 					to(transparent));
-			
-			&:active {
-				background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-down-gradient[1]), to($header-button-down-gradient[0]));
-			}
+		}
+		
+		&:active:before {
+			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-down-gradient[1]), to($header-button-down-gradient[0]));
 		}
 	}
 
@@ -221,7 +221,7 @@ a.button {
 			
 			transform: rotate(135deg) skew(-10deg, -10deg);
 			
-			box-shadow: $px -1*$px 0 rgba(0,0,0,0.15) inset,
+			box-shadow: $px -1*$px 0 rgba(0,0,0,0.35) inset,
 						$px $px $px rgba(0,0,0,0.25) inset,
 						$px -1*$px $px rgba(255,255,255,0.85);
 					
@@ -233,10 +233,10 @@ a.button {
 					color-stop(0.35, black),
 					color-stop(0.5, transparent),
 					to(transparent));
-					
-			&:active {
-				background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-down-gradient[0]), to($header-button-down-gradient[1]));
-			}
+		}
+				
+		&:active:before {
+			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-down-gradient[0]), to($header-button-down-gradient[1]));
 		}
 	}
 

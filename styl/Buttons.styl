@@ -20,7 +20,7 @@ a.button {
     font-family: $button-font;
 	font-size: 0.9em;
 	font-weight: bold;
-	text-shadow: 0 0 -($px) rgba(0, 0, 0, 0.5);
+	text-shadow: 0 -1*$px 0 rgba(0, 0, 0, 0.5);
 	text-decoration: none; /* Reset underline on a.button */
 	text-align: center;
 	
@@ -121,7 +121,7 @@ a.button {
 
 		box-shadow: 0 0 0.4em rgba(0,0,0,0.5);
 
-		text-shadow: 0 0 -($px) rgba(0, 0, 0, 0.2);
+		text-shadow: 0 -1*$px 0 rgba(0, 0, 0, 0.2);
 	
 		i {
 			font-size: 1.15em;
@@ -154,31 +154,39 @@ a.button {
 		}
 	}
 	
-	&.back {
+	&.back,
+	&.forward {
 		position: relative;
+		
+		&:before {
+			position: absolute;
+			
+			height: 1.695em;
+			width: 1.695em;
+			
+			border-top-right-radius: 7.143em 2.857em;
+			border-top-left-radius: 2.143em 0.143em;
+			border-bottom-right-radius: 0.143em 2.143em;
+			border-bottom-left-radius: 2.857em 7.143em;
+		
+			z-index: 1;
+			content: '';
+		}
+	}
+	
+	&.back {
 		margin-left: 0.65em !important;
 		
 		border-top-left-radius: 0.905em !important;
 		border-bottom-left-radius: 0.905em !important;
 		
 		&:before {
-			position: absolute;
 			top: 0.235em;
 			left: -0.315em;
-			
-			height: 1.695em;
-			width: 1.695em;
 		
 			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-gradient[1]), to($header-button-gradient[0]));
 			
-			transform : rotate(-45deg) skew(-10deg, -10deg);
-			border-top-right-radius : 7.143em 2.857em;
-			border-top-left-radius : 2.143em 0.143em;
-			border-bottom-right-radius : 0.143em 2.143em;
-			border-bottom-left-radius : 2.857em 7.143em;
-		
-			z-index: 1;
-			content: '';
+			transform: rotate(-45deg) skew(-10deg, -10deg);
 		
 			box-shadow: $px $px 0 rgba(0,0,0,0.15) inset,
 						-($px) $px $px rgba(0,0,0,0.25) inset,
@@ -195,30 +203,18 @@ a.button {
 	}
 
 	&.forward {
-		position: relative;
 		margin-right: 0.65em !important;
 		
 		border-top-right-radius: 0.905em !important;
 		border-bottom-right-radius: 0.905em !important;
 		
 		&:before {
-			position: absolute;
 			top: 0.21em;
 			right: -0.275em;
-			
-			height: 1.695em;
-			width: 1.695em;
 		
 			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-gradient[0]), to($header-button-gradient[1]));
 			
-			transform : rotate(135deg) skew(-10deg, -10deg);
-			border-top-right-radius : 7.143em 2.857em;
-			border-top-left-radius : 2.143em 0.143em;
-			border-bottom-right-radius : 0.143em 2.143em;
-			border-bottom-left-radius : 2.857em 7.143em;
-		
-			z-index: 1;
-			content: '';
+			transform: rotate(135deg) skew(-10deg, -10deg);
 			
 			box-shadow: $px -1*$px 0 rgba(0,0,0,0.15) inset,
 						$px $px $px rgba(0,0,0,0.25) inset,

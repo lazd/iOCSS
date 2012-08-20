@@ -44,6 +44,10 @@ $header-button-default-down-gradient = adjust-colors($header-button-default-grad
 			&.back:before {
 				background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-gradient[1]), to($header-button-default-gradient[0]));
 			}
+			
+			&.forward:before {
+				background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-gradient[0]), to($header-button-default-gradient[1]));
+			}
 		}
 		
 		&:active {
@@ -52,6 +56,10 @@ $header-button-default-down-gradient = adjust-colors($header-button-default-grad
 		
 		&.back:before {
 			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-gradient[1]), to($header-button-gradient[0]));
+		}
+		
+		&.forward:before {
+			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-gradient[0]), to($header-button-gradient[1]));
 		}
 	}
 }

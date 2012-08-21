@@ -155,11 +155,12 @@ a.button {
 	}
 	
 	$arrow-button-radius = 0.45em;
-	$arrow-button-triangle-size = 1.36em;
-	$arrow-button-triangle-rotation = -10deg;
+	$arrow-button-triangle-size = 1.145em;
+	$arrow-button-triangle-skew = -10deg;
 	
 	&.back,
 	&.forward {
+		vertical-align: top;
 		position: relative;
 		
 		&:before {
@@ -176,30 +177,32 @@ a.button {
 	&.back {
 		margin-left: 0.65em !important;
 		
-		padding-left: 0.575em !important;
+		padding-left: 0.577em !important;
 		
 		border-top-left-radius: 	$arrow-button-radius !important;
 		border-bottom-left-radius: 	$arrow-button-radius !important;
 		
+		border-left: none;
+		
 		&:before {
-			top: 0.423em;
-			left: -0.487em;
+			top: 0.4975em;
+			left: -0.4845em; // any higher messes up vertical 32px
 
 			background: red;
 		
 			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-gradient[1]), to($header-button-gradient[0]));
 			
-			transform: translate3d(0,0,0) rotate(-45deg) skew($arrow-button-triangle-rotation, $arrow-button-triangle-rotation);
+			transform: translate3d(0,0,0) rotate(-45deg) skew($arrow-button-triangle-skew, $arrow-button-triangle-skew);
 		
-			box-shadow: 0.0795em 0.0795em 0.085em rgba(0,0,0,0.525) inset;
+			box-shadow: 0.079em 0.0795em 0.085em rgba(0,0,0,0.5) inset;
 					
 			border-left: $px solid rgba(255,255,255,0.175);
 			// border-left: $px solid rgb(160,175,199);
 
 			-webkit-mask-image: -webkit-gradient(linear, left top, right bottom,
 					from(black),
-					color-stop(0.43, black),
-					color-stop(0.435, transparent),
+					color-stop(0.5, black),
+					color-stop(0.55, transparent),
 					to(transparent));
 		}
 		
@@ -211,28 +214,28 @@ a.button {
 	&.forward {
 		margin-right: 0.65em !important;
 		
-		padding-right: 0.575em !important;
+		padding-right: 0.577em !important;
 		
 		border-top-right-radius: 	$arrow-button-radius !important;
 		border-bottom-right-radius: $arrow-button-radius !important;
 		
 		&:before {
-			top: 0.39em;
-			right: -0.4585em;
+			top: 0.47925em;
+			right: -0.4525em;
 		
 			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-gradient[0]), to($header-button-gradient[1]));
 			
-			transform: translate3d(0,0,0) rotate(135deg) skew($arrow-button-triangle-rotation, $arrow-button-triangle-rotation);
+			transform: translate3d(0,0,0) rotate(135deg) skew($arrow-button-triangle-skew, $arrow-button-triangle-skew);
 			
-			box-shadow: 0.0795em 0.0795em 0.085em rgba(0,0,0,0.525) inset;
+			box-shadow: 0.079em 0.0795em 0.085em rgba(0,0,0,0.52) inset;
 			
 			border-top: $px solid rgba(255,255,255,0.175);
 			// border-top: $px solid rgb(160,175,199);
 
 			-webkit-mask-image: -webkit-gradient(linear, left top, right bottom,
 					from(black),
-					color-stop(0.43, black),
-					color-stop(0.435, transparent),
+					color-stop(0.5, black),
+					color-stop(0.55, transparent),
 					to(transparent));
 		}
 				

@@ -59,6 +59,9 @@ div.header {
 		/* Header buttons have a different look */
         a.button,
 		button {
+			border-box();
+			height: 2.1em;
+			
 		    padding: 0.5em 0.75em;
 			margin: -0.1em 0.25em 0 0.25em;
 		
@@ -72,6 +75,16 @@ div.header {
         				0 0.1em 0.05em rgba(255, 255, 255, 0.35);
         				
 			gradient($header-button-gradient);
+			
+			i:first-child:last-child {
+				display: block;
+				width: 0.92em;
+				height: 1em;
+				margin: 0 -0.15em;
+				
+				font-size: 1.2em;
+				line-height: 1.1em;
+			}
 			
 			&.default {
 				gradient($header-button-default-gradient);

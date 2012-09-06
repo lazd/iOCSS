@@ -21,20 +21,14 @@ ul.list {
 		cursor: pointer;
 		overflow: hidden;
 		
-		strong,
-		span {
+		> strong,
+		> span {
 			box-flex: 2;
 			
 			font-size: 1.25em;
-			
-			strong {
-				display: inline;
-				padding: 0;
-				
-				font-size: 1em;
-			}
 		}
 		
+		a.button,
 		button {
 			padding: 0.3em 0.5em;
 			margin: 0.05em 0 0 0;
@@ -42,6 +36,7 @@ ul.list {
 			text-align: center;
 		}
 		
+		a.button.round,
 		button.round {
 			padding: 0;
 			margin: 0 0.75em 0 0.5em;
@@ -49,6 +44,7 @@ ul.list {
 			font-size: 0.85em;
 		}
 		
+		a.button.unlock,
 		button.unlock {
 			transition: all 0.075s ease-in;
 			
@@ -57,14 +53,20 @@ ul.list {
 			}
 		}
 	
-		button.view {
-			padding-left: 0.085em;
-		}
-		
 		div:last-child {
 			box-flex: 1;
 			
 			text-align: right;
+			
+			a.button.details,
+			button.details {
+				padding-left: 0.085em;
+			}
+	
+			i.view {
+				color: $list-view-color;
+				font-size: 1.5em;
+			}
 		}
 	}
 }

@@ -3,6 +3,10 @@ div.header {
 
 	position: relative;
 	
+	box-horizontal();
+	box-center();
+	border-box();
+	
 	height: $header-height;
 
 	box-shadow: 0 2*$px 4*$px $header-shadow-color;
@@ -32,33 +36,37 @@ div.header {
 	}
 
 	> div {
-		/* Center the buttons vertically */
+		// Position above heading
+		position: relative;
+		z-index: 2;
+		
+		// Center the buttons vertically
 		box-horizontal();
-		box-center();
+		box-align: center;
+		box-flex: 1;
+		
 		border-box();
 		
 		height: $header-height + 0.1;
 		padding: 0 0.25em 0 0.25em;
 		
-		position: absolute;
-		top: 0;
-		z-index: 2;	
-	
-		/* The first div should be shoved to the left */
 		&:first-child {
-			text-align: left;
-			left: 0;
+			// The content of the first div should be shoved to the left
+			box-pack: start;
 		}
 
-		/* The last div should be shoved to the right */
 		&:last-child {
-			text-align: right;
-			right: 0;
+			// The content of the last div should be shoved to the right
+			box-pack: end;
 		}
 
 		/* Header buttons have a different look */
         a.button,
 		button {
+			position: relative; // so badges can be positioned
+			
+			vertical-align: top; // for consistency between back/other buttons
+			
 			border-box();
 			height: 2.1em;
 			

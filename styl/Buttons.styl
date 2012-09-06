@@ -30,8 +30,8 @@ a.button {
 	
 	.badge {
 		position: absolute;
-		right: 0.1em;
-		top: 0.1em;
+		right: -0.6em;
+		top: -0.4em;
 		z-index: 1;
 		
 		font-size: 0.9em;
@@ -187,9 +187,7 @@ a.button {
 		&:before {
 			top: 0.4975em;
 			left: -0.4845em; // any higher messes up vertical 32px
-
-			background: red;
-		
+			
 			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-gradient[1]), to($header-button-gradient[0]));
 			
 			transform: translate3d(0,0,0) rotate(-45deg) skew($arrow-button-triangle-skew, $arrow-button-triangle-skew);

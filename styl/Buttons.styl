@@ -2,10 +2,10 @@
 button,
 a.button {
 	display: inline-block;
-	padding: 0.5em 0.75em;
+	padding: 0.5em 10*$px;
 
 	border: $px solid rgb(110, 110, 110);
-	border-radius: 0.35em;
+	border-radius: 5*$px;
 
 	gradient($button-gray-gradient);
 	
@@ -30,11 +30,16 @@ a.button {
 	
 	.badge {
 		position: absolute;
-		right: -0.6em;
-		top: -0.4em;
+		right: -0.75em;
+		top: -0.5em;
 		z-index: 1;
 		
-		font-size: 0.9em;
+		font-size: 0.9rem;
+
+		&.left {
+			left: -0.75rem;
+			right: auto;
+		}
 	}
 	
 	&:active {
@@ -44,10 +49,10 @@ a.button {
 
 	// Large button
 	&.large {
-	    font-size: 1.5em;
+	    font-size: 1.5rem;
 	
 		& i {
-			font-size: 1.35em;
+			font-size: 1.35rem;
 			vertical-align: middle;
 			line-height: 0.5em;
 			margin-right: 0.1em;
@@ -124,7 +129,7 @@ a.button {
 		text-shadow: 0 -1*$px 0 rgba(0, 0, 0, 0.2);
 	
 		i {
-			font-size: 1.15em;
+			font-size: 1rem;
 		}
 
 		&.blue {
@@ -143,20 +148,19 @@ a.button {
 			}
 		}
 		
-		&.unlockDelete {
+		&.unlock {
 			transition: all 0.075s ease-in;
 			
 			&.unlocked {
 				transform: rotate(-90deg);
-				
-				margin-top: 0.0000001em; // Fix a Chrome bug when toggling the rotation a few times
+				// margin-top: 0.0000001em; // Fix a Chrome bug when toggling the rotation a few times
 			}
 		}
 	}
 	
-	$arrow-button-radius = 0.45em;
-	$arrow-button-triangle-size = 1.145em;
-	$arrow-button-triangle-skew = -10deg;
+	$arrow-button-radius = 0.35em;
+	$arrow-button-triangle-size = 27*$vpx/2;
+	$arrow-button-triangle-skew = -9deg;
 	
 	&.back,
 	&.forward {
@@ -164,13 +168,25 @@ a.button {
 		position: relative;
 		
 		&:before {
+			display: block;
+
 			position: absolute;
+			z-index: 1;
 			
 			height: $arrow-button-triangle-size;
-			width: 	$arrow-button-triangle-size;
+			width: $arrow-button-triangle-size;
 			
-			z-index: 1;
 			content: '';
+
+			transform: translate3d(0,0,0) rotate(-45deg) skew($arrow-button-triangle-skew, $arrow-button-triangle-skew);
+		
+			box-shadow: 0.079em 0.0795em 0.065em rgba(0,0,0,0.425) inset;
+
+			-webkit-mask-image: -webkit-gradient(linear, left top, right bottom,
+					from(black),
+					color-stop(0.55, black),
+					color-stop(0.55, transparent),
+					to(transparent));
 		}
 	}
 	
@@ -185,27 +201,11 @@ a.button {
 		border-left: none;
 		
 		&:before {
-			top: 0.4975em;
-			left: -0.4845em; // any higher messes up vertical 32px
+			top: 0.48175em;
+			left: -0.4725em;
 			
-			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-gradient[1]), to($header-button-gradient[0]));
-			
-			transform: translate3d(0,0,0) rotate(-45deg) skew($arrow-button-triangle-skew, $arrow-button-triangle-skew);
-		
-			box-shadow: 0.079em 0.0795em 0.085em rgba(0,0,0,0.5) inset;
-					
-			border-left: $px solid rgba(255,255,255,0.175);
+			// border-left: $px solid rgba(255,255,255,0.175);
 			// border-left: $px solid rgb(160,175,199);
-
-			-webkit-mask-image: -webkit-gradient(linear, left top, right bottom,
-					from(black),
-					color-stop(0.5, black),
-					color-stop(0.55, transparent),
-					to(transparent));
-		}
-		
-		&:active:before {
-			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-down-gradient[1]), to($header-button-down-gradient[0]));
 		}
 	}
 
@@ -218,29 +218,61 @@ a.button {
 		border-bottom-right-radius: $arrow-button-radius !important;
 		
 		&:before {
-			top: 0.47925em;
-			right: -0.4525em;
+			top: 0.48175em;
+			right: -0.491537em;
 		
-			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-gradient[0]), to($header-button-gradient[1]));
-			
 			transform: translate3d(0,0,0) rotate(135deg) skew($arrow-button-triangle-skew, $arrow-button-triangle-skew);
 			
-			box-shadow: 0.079em 0.0795em 0.085em rgba(0,0,0,0.52) inset;
-			
-			border-top: $px solid rgba(255,255,255,0.175);
+			// border-top: $px solid rgba(255,255,255,0.175);
 			// border-top: $px solid rgb(160,175,199);
-
-			-webkit-mask-image: -webkit-gradient(linear, left top, right bottom,
-					from(black),
-					color-stop(0.5, black),
-					color-stop(0.55, transparent),
-					to(transparent));
-		}
-				
-		&:active:before {
-			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-down-gradient[0]), to($header-button-down-gradient[1]));
 		}
 	}
+
+
+	&:active {
+		gradient($header-button-down-gradient);
+	}
+	
+	&.default {
+		color: $header-button-default-text-color;
+	
+		&:active {
+			gradient($header-button-default-down-gradient);
+		}
+	
+		&.back:before {
+			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-gradient[1]), to($header-button-default-gradient[0]));
+		}
+		
+		&.back:active:before {
+			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-down-gradient[1]), to($header-button-default-down-gradient[0]));
+		}
+		
+		&.forward:before {
+			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-gradient[0]), to($header-button-default-gradient[1]));
+		}
+		
+		&.forward:active:before {
+			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-down-gradient[0]), to($header-button-default-down-gradient[1]));
+		}
+	}
+	
+	&.back:before {
+		background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-gradient[1]), to($header-button-gradient[0]));
+	}
+	
+	&.back:active:before {
+		background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-down-gradient[1]), to($header-button-down-gradient[0]));
+	}
+	
+	&.forward:before {
+		background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-gradient[0]), to($header-button-gradient[1]));
+	}
+	
+	&.forward:active:before {
+		background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-down-gradient[0]), to($header-button-down-gradient[1]));
+	}
+
 
 	/* Button: Disabled */
 	&.disabled,

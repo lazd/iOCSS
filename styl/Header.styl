@@ -27,10 +27,10 @@ div.header {
 	    
 		color: $header-text-color;
 		font-weight: bold;
-		font-size: 1.25em;
-		line-height: 2.25em;
+		font-size: 1.25rem;
+		line-height: 2.95rem;
 		text-align: center;
-		text-shadow: 0 -0.1em 0 $header-text-shadow-color;
+		text-shadow: 0 -0.1rem 0 $header-text-shadow-color;
 	
 		text-overflow: ellipsis;
 	}
@@ -48,7 +48,7 @@ div.header {
 		border-box();
 		
 		height: $header-height + 0.1;
-		padding: 0 0.25em 0 0.25em;
+		padding: 0 0.25rem 0 0.25rem;
 		
 		&:first-child {
 			// The content of the first div should be shoved to the left
@@ -68,9 +68,10 @@ div.header {
 			vertical-align: top; // for consistency between back/other buttons
 			
 			border-box();
-			height: 2.1em;
+			height: 25*$vpx;
+			line-height: 1;
 			
-		    padding: 0.5em 0.75em;
+		    padding: 0.5125em 0.75em;
 			margin: -0.1em 0.25em 0 0.25em;
 		
 		    border: none;
@@ -93,21 +94,36 @@ div.header {
 			// 	font-size: 1.2em;
 			// 	line-height: 1.1em;
 			// }
-			
+			// &.forward:before {
+			// 	background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-gradient[0]), to($header-button-gradient[1]));
+			// }
+
+			&:active {
+				gradient($header-button-down-gradient);
+			}
+
 			&.default {
 				gradient($header-button-default-gradient);
 				
 				&:active {
 					gradient($header-button-default-down-gradient);
 				}
-		
+				
 				&.back:before {
 					background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-gradient[1]), to($header-button-default-gradient[0]));
 				}
-			}
-			
-			&:active {
-				gradient($header-button-down-gradient);
+				
+				&.back:active:before {
+					background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-down-gradient[1]), to($header-button-default-down-gradient[0]));
+				}
+				
+				&.forward:before {
+					background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-gradient[0]), to($header-button-default-gradient[1]));
+				}
+				
+				&.forward:active:before {
+					background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-down-gradient[0]), to($header-button-default-down-gradient[1]));
+				}
 			}
 		}
 	    

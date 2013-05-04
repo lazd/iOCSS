@@ -1,94 +1,101 @@
 div.footer {
-    box-horizontal();
-    box-center();
-    
-    width: 100%;
-    height: $footer-size;
-    
-    border-top: $px solid $footer-border-color;
-    
-    gradient($footer-gradient);
+	box-horizontal();
+	box-center();
 	
-	box-shadow: 0 -0.1em 0.175em rgba(0, 0, 0, 0.035);
-    
-    button,
-    a.button {
+	width: 100%;
+	height: $footer-size;
+	
+	border-top: $px solid $footer-border-color;
+	
+	gradient($footer-gradient);
+	
+	box-shadow: 0 -0.1rem 0.175rem rgba(0, 0, 0, 0.035);
+	
+	button,
+	a.button {
 		position: relative;
+		box-sizing: border-box;
 		
-        width: $footer-size+2;
-        height: (1 / $footer-font-size) * $footer-size;
-        display: block;
-        margin: 0;
-        
-        gradient($footer-gradient);
-        
-        border: none;
-        border-left: (1 / $footer-font-size)*$px solid $footer-button-border-left-color;
-        border-radius: 0;
-        
+		width: $footer-size+1;
+		height: $footer-size;
+		display: block;
+		margin: 0;
+		padding: 0;
+		
+		gradient($footer-gradient);
+		
+		border: none;
+		border-left: (1 / $footer-font-size)*$px solid $footer-button-border-left-color;
+		border-radius: 0;
+		
 		box-shadow: inset -(1 / $footer-font-size)*$px 0 0 rgba(255, 255, 255, 0.115);
-        
-        color: $footer-button-text-color;
-        font-weight: bold;
-        font-size: $footer-font-size;
+		
+		color: $footer-button-text-color;
+		font-weight: bold;
+		font-size: $footer-font-size;
 
 		.badge {
 			position: absolute;
-			right: -0.25em;
-			top: -0.25em;
+			right: -0.5rem;
+			top: -0.5rem;
 			z-index: 1;
 			
-			font-size: 1.135em;
+			font-size: 1rem;
+
+			&.left {
+				left: -0.5rem;
+				right: auto;
+			}
 		}
 
-        i {
-            text-shadow: none;
-            display: block;
-            
-            height: $footer-icon-height;
-            margin: ($footer-size / 14) 0;
-        }
+		i {
+			text-shadow: none;
+			display: block;
+			
+			height: $footer-icon-height;
+			margin: ($footer-size / 14) 0;
+		}
 
-        i:before {
-            font-size: $footer-icon-size;
-            
-            color: $footer-icon-color;
-            -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
-            /*
-            // Can't do this due to Webkit bug #67415, makes text blurry
-            background: -webkit-gradient(linear, left top, left bottom, from($footer-icon-gradient[0]), to($footer-icon-gradient[1]));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            */
-        }
-        
-        &.down {
-            color: $footer-button-down-text-color;
-        	box-shadow: inset 0 0.1em 0.5em rgba(0, 0, 0, 0.5),
+		i:before {
+			font-size: $footer-icon-size;
+			
+			color: $footer-icon-color;
+			-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+			/*
+			// Can't do this due to Webkit bug #67415, makes text blurry
+			background: -webkit-gradient(linear, left top, left bottom, from($footer-icon-gradient[0]), to($footer-icon-gradient[1]));
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			*/
+		}
+		
+		&.down {
+			color: $footer-button-down-text-color;
+			box-shadow: inset 0 0.1rem 0.5rem rgba(0, 0, 0, 0.5),
 						inset -(1 / $footer-font-size)*$px 0 0 rgba(255, 255, 255, 0.1);
 				
-            gradient($footer-button-down-gradient);
-            
-            
-            i:before {
-                color: $footer-icon-down-color;
-                
-                -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.65)), to(rgba(0,0,0,1)));
-                /*
-                // Can't do this due to Webkit bug #67415, makes text blurry
-                background: -webkit-gradient(linear, left top, left bottom, from($footer-icon-down-gradient[0]), to($footer-icon-down-gradient[1]));
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                */
-            }
-        }
-        
-        &:first-child {
-            border-left: none;
-        }
-        
-        &:last-child {
-            border-right: none;
-        }
-    }
+			gradient($footer-button-down-gradient);
+			
+			
+			i:before {
+				color: $footer-icon-down-color;
+				
+				-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.65)), to(rgba(0,0,0,1)));
+				/*
+				// Can't do this due to Webkit bug #67415, makes text blurry
+				background: -webkit-gradient(linear, left top, left bottom, from($footer-icon-down-gradient[0]), to($footer-icon-down-gradient[1]));
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				*/
+			}
+		}
+		
+		&:first-child {
+			border-left: none;
+		}
+		
+		&:last-child {
+			border-right: none;
+		}
+	}
 }

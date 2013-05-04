@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>iOCSS</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	
+	<!-- Ensure correct presentation on iOS -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	
+	<!-- FontAwesome Icons -->
+	<link rel="stylesheet" type="text/css" href="lib/font-awesome/font-awesome.css">
+	
+	<!-- iOCSS -->
+	<link rel="stylesheet" type="text/css" href="../build/css/io.css">
+	
+	<script type="text/javascript">
+		(function() {
+			function $(id) {
+				return document.getElementById(id);
+			}
+		
+			function changeSize(by) {
+				var newSize = (parseInt(document.body.style.fontSize || 14)+by)+'px';
+			
+				document.body.style.fontSize = newSize;
+			
+				$('size-current').innerHTML = newSize;
+			}
+		
+			var tabs = [
+				'about',
+				'docs',
+				'donate'
+			];
+		
+			var curTab = 'about';
+		
+			function changeTab(tab) {
+				$('tab-'+curTab).className = '';
+				$('panel-'+curTab).style.display = 'none';
+			
+				$('tab-'+tab).className = 'down';
+				$('panel-'+tab).style.display = '';
+			
+				curTab = tab;
+			
+				window.location.hash = tab;
+			};
+		
+			function addTabListener(tab) {
+				$('tab-'+tab).addEventListener('click', function() {
+					changeTab(tab);
+				});
+			}
+
+			function setTabFromHash() {
+				var hashTab = window.location.hash.slice(1);
+				if (tabs.indexOf && ~tabs.indexOf(hashTab))
+					changeTab(hashTab);
+			}
+		
+			window.addEventListener('load', function() {
+				changeSize(0);
+			
+				$('size-decrease').addEventListener('click', function() {
+					changeSize(-2);
+				});
+			
+				$('size-increase').addEventListener('click', function() {
+					changeSize(2);
+				});
+			
+				for (var i = 0; i < tabs.length; i++) {
+					addTabListener(tabs[i])
+				}
+			
+				if (window.location.hash) {
+					setTabFromHash();
+				}
+				
+				document.addEventListener("click", function(evt) {
+					if (evt.target.className.match(/changeTheme/))
+						document.body.className = 'iOCSS '+(evt.target.id || '');
+				});
+				
+			
+				window.addEventListener("hashchange", setTabFromHash);
+			});
+		}());
+		
+	</script>
+	
+	<style>
+		#size-current {
+			display: inline-block;
+			display: none;
+			vertical-align: top;
+
+			font-size: 1.75em;
+		}
+		
+		.size {
+			float: right;
+			display: inline-block;
+			margin-left: 0.5em;
+		}
+		
+		.icon-large {
+			display: block;
+			float: left;
+			margin-right: 0.25em;
+			font-size: 3em;
+			height: 1.05em;
+			color: gray;
+			
+			text-shadow: 0.05em 0.05em 0.1em rgba(0, 0, 0, 0.2);
+		}
+		
+		.paypal {
+			padding: 0 1em;
+		}
+		
+		ol li {
+			margin-bottom: 1em;
+		}
+		
+		code {
+			display: block;
+			margin: 0.5em;
+			padding: 0.5em;
+			
+			background: #f4f4f4;
+			
+			white-space: pre;
+			
+			border-radius: 0.5em;
+			border: 0.1em solid #aaa;
+		}
+		
+		.right {
+			float: right;
+		}
+		.clear {
+			clear: both;
+		}
+		
+	</style>
+	
+</head>
+<body class="iOCSS white">
+
+	<div class="frame">
+		
+		<div class="header">
+			<div>
+				<a href="https://github.com/lazd/iOCSS" class="button"><i class="icon-github"></i> Git</a>
+			</div>
+			
+			<h1>iOCSS</h1>
+			
+			<div>
+				<a href="css/io.css" download="io.css" class="button default"><i class="icon-download-alt"></i> Download</a>
+			</div>
+		</div>
+		
+		<div class="scroller">
+			
+			<div id="panel-about">
+				<div class="well">
+					<h1>iOCSS: Simple Mobile CSS</h1>
+					<p>Give your app a look and feel that closely resembles the popular mobile platform.</p>
+				</div>
+			
+				<div class="well">
+					<i class="icon-large icon-resize-full"></i>
+				
+					<h2>Fully elastic
+					<div class="size">
+						<button id="size-decrease"class="gray round"><i class="icon-minus"></i></button>
+						<div id="size-current"></div>
+						<button id="size-increase"class="blue round"><i class="icon-plus"></i></button>
+					</div></h2>
+				
+					<p>Built using elastic measurement units, iOCSS scales simply by increasing the font-size of the &lt;body&gt; element.</p>
+				</div>
+			
+				<div class="well">
+					<div class="clear right">
+						<a class="button blue changeTheme">Blue</a>
+						<a id="black" class="button black changeTheme">Black</a>
+						<a id="white" class="button changeTheme">White</a>
+					</div>
+					
+					<i class="icon-large icon-wrench"></i>
+				
+					<h2>3 Color Themes</h2>
+					<p>iOCSS provides three common color themes.</p>
+				
+				</div>
+				
+				<div class="well">
+					<i class="icon-large icon-eye-open"></i>
+				
+					<h2>Look ma, no images!</h2>
+					<p>iOCSS is built without images, so no matter how high-resolution the next tablet or phone is, your web app will look crisp and clean.</p>
+					<p>Combine with the awesomeness of <a href="http://fortawesome.github.com/Font-Awesome/">FontAwesome</a>, and you'll have infinite scalability.</p>
+				
+				</div>
+			
+				<div class="well">
+					<i class="icon-large icon-magic"></i>
+				
+					<h2>Animate with style</h2>
+					<p>iOCSS doesn't provide JavaScript, but it does provide CSS3 animations where necessary.</p>
+				</div>
+			
+				<div class="well">
+					<i class="icon-large icon-pencil"></i>
+				
+					<h2>Simply Stylus</h2>
+					<p>Written with Stylus to be easily customizable, but compiled to minified CSS to be easily deployable.</p>
+				</div>
+			</div>
+			
+			<div style="display: none;" id="panel-docs">
+				
+				<div class="well">
+					<h1>iOCSS Documentation</h1>
+					
+					<a href="#gettingStarted">Getting Started</a>
+				</div>
+
+				<div id="gettingStarted" class="well">
+					<h2>Getting Started</h2>
+					<ol>
+						<li><a href="css/io.css" download="io.css" class="button default"><i class="icon-download-alt"></i> Download io.css</a></li>
+						
+						<li>Include io.css in your project
+						<code class="prettyprint lang-html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/io.css&quot;&gt;</code>
+							
+						</li>
+						<li>Add the iOCSS class to the &lt;body&gt; element</li>
+						<code class="prettyprint lang-html">&lt;body class=&quot;iOCSS&quot;&gt;</code>
+					</ol>
+				</div>
+				
+				<div id="header" class="well">
+					<h2>Header</h2>
+					<p>Use the CSS class header</p>
+					<code class="prettyprint lang-html">&lt;div class=&quot;header&quot;&gt;
+  &lt;div&gt;
+    &lt;a href=&quot;/donate&quot; class=&quot;button&quot;&gt;&lt;i class=&quot;icon-money&quot;&gt;&lt;/i&gt; Donate&lt;/a&gt;
+  &lt;/div&gt;
+  
+  &lt;h1&gt;My Title&lt;/h1&gt;
+  
+  &lt;div&gt;
+    &lt;button class=&quot;default&quot;&gt;Done&lt;/button
+  &lt;/div&gt;
+&lt;/div&gt;</code>
+				</div>
+				
+			</div>
+			
+			<div style="display: none;" id="panel-donate">
+				
+				<div class="well">
+					<h1>Donate</h1>
+					<p>Do you use iOCSS in your project? Consider sending us a small token of your appreciation.</p>
+					
+				</div>
+			
+				<form class="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+					<input type="hidden" name="cmd" value="_s-xclick">
+					<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+					">
+					<button class="blue large" type="submit" name="submit" alt="PayPal - The safer, easier way to pay online!">Donate with PayPal</button>
+					<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+				</form>
+
+			</div>
+		</div>
+		
+		<div class="footer">
+			<button id="tab-about" class="down">
+				<i class="icon-question-sign"></i>
+				About
+			</button>
+			<button id="tab-docs">
+				<i class="icon-book"></i>
+				Docs
+			</button>
+			<button id="tab-donate">
+				<i class="icon-money"></i>
+				Donate
+				<div class="badge">$5</div>
+			</button>
+		</div>
+		
+	</div>
+	
+</body>
+</html>

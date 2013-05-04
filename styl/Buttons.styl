@@ -129,7 +129,8 @@ a.button {
 		text-shadow: 0 -1*$px 0 rgba(0, 0, 0, 0.2);
 	
 		i {
-			font-size: 1rem;
+			font-size: 1.15rem;
+			line-height: 1.5;
 		}
 
 		&.blue {
@@ -151,6 +152,10 @@ a.button {
 		&.unlock {
 			transition: all 0.075s ease-in;
 			
+			i {
+				font-size: 1rem;
+			}
+
 			&.unlocked {
 				transform: rotate(-90deg);
 				// margin-top: 0.0000001em; // Fix a Chrome bug when toggling the rotation a few times

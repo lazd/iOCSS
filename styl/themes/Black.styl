@@ -45,37 +45,25 @@ $header-button-default-down-gradient = adjust-colors($header-button-default-grad
 				gradient($header-button-default-down-gradient);
 			}
 		
-			&.back:before {
+			&.back:before,
+			&.forward:before {
 				background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-gradient[1]), to($header-button-default-gradient[0]));
 			}
 			
-			&.back:active:before {
-				background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-down-gradient[1]), to($header-button-default-down-gradient[0]));
-			}
-			
-			&.forward:before {
-				background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-gradient[0]), to($header-button-default-gradient[1]));
-			}
-			
+			&.back:active:before,
 			&.forward:active:before {
-				background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-down-gradient[0]), to($header-button-default-down-gradient[1]));
+				background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-down-gradient[1]), to($header-button-default-down-gradient[0]));
 			}
 		}
 		
-		&.back:before {
+		&.back:before,
+		&.forward:before {
 			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-gradient[1]), to($header-button-gradient[0]));
 		}
 		
-		&.back:active:before {
-			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-down-gradient[1]), to($header-button-down-gradient[0]));
-		}
-		
-		&.forward:before {
-			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-gradient[0]), to($header-button-gradient[1]));
-		}
-		
+		&.back:active:before,
 		&.forward:active:before {
-			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-down-gradient[0]), to($header-button-down-gradient[1]));
+			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-down-gradient[1]), to($header-button-down-gradient[0]));
 		}
 	}
 }

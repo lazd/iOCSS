@@ -164,12 +164,11 @@ a.button {
 	}
 	
 	$arrow-button-radius = 0.35em;
-	$arrow-button-triangle-size = 27*$vpx/2;
-	$arrow-button-triangle-skew = -9deg;
+	$arrow-button-triangle-size = 36*$px/2;
+	$arrow-button-triangle-skew = -10deg;
 	
 	&.back,
 	&.forward {
-		vertical-align: top;
 		position: relative;
 		
 		&:before {
@@ -182,23 +181,13 @@ a.button {
 			width: $arrow-button-triangle-size;
 			
 			content: '';
-
-			transform: translate3d(0,0,0) rotate(-45deg) skew($arrow-button-triangle-skew, $arrow-button-triangle-skew);
-		
-			box-shadow: 0.079em 0.0795em 0.065em rgba(0,0,0,0.425) inset;
-
-			-webkit-mask-image: -webkit-gradient(linear, left top, right bottom,
-					from(black),
-					color-stop(0.55, black),
-					color-stop(0.55, transparent),
-					to(transparent));
 		}
 	}
 	
 	&.back {
-		margin-left: 0.65em !important;
+		margin-left: 0.65rem !important;
 		
-		padding-left: 0.577em !important;
+		padding-left: 0.577rem !important;
 		
 		border-top-left-radius: 	$arrow-button-radius !important;
 		border-bottom-left-radius: 	$arrow-button-radius !important;
@@ -206,30 +195,42 @@ a.button {
 		border-left: none;
 		
 		&:before {
-			top: 23.35%;
-			left: -0.5em;
-			
-			// border-left: $px solid rgba(255,255,255,0.175);
-			// border-left: $px solid rgb(160,175,199);
+			top: 0.5rem;
+			left: -0.5rem;
+
+			transform: translate3d(0,0,0) rotate(-45deg) skew($arrow-button-triangle-skew, $arrow-button-triangle-skew);
+
+			-webkit-mask-image: -webkit-gradient(linear, left top, right bottom,
+					from(black),
+					color-stop(0.55, black),
+					color-stop(0.55, transparent),
+					to(transparent));
+		
+			box-shadow: 0.079rem 0.079rem 0.125rem rgba(0,0,0,0.425) inset;
 		}
 	}
 
 	&.forward {
-		margin-right: 0.65em !important;
+		margin-right: 0.65rem !important;
 		
-		padding-right: 0.577em !important;
+		padding-right: 0.577rem !important;
 		
 		border-top-right-radius: 	$arrow-button-radius !important;
 		border-bottom-right-radius: $arrow-button-radius !important;
 		
 		&:before {
-			top: 0.4825em;
-			right: -0.491537em;
+			top: 0.5rem;
+			right: -0.5rem + $px;
 		
-			transform: translate3d(0,0,0) rotate(135deg) skew($arrow-button-triangle-skew, $arrow-button-triangle-skew);
+			transform: translate3d(0,0,0) rotate(-45deg) skew($arrow-button-triangle-skew, $arrow-button-triangle-skew);
 			
-			// border-top: $px solid rgba(255,255,255,0.175);
-			// border-top: $px solid rgb(160,175,199);
+			-webkit-mask-image: -webkit-gradient(linear, right bottom, left top,
+					from(black),
+					color-stop(0.55, black),
+					color-stop(0.55, transparent),
+					to(transparent));
+		
+			box-shadow: -0.079rem -0.079rem 0.125rem rgba(0,0,0,0.425) inset;
 		}
 	}
 
@@ -245,39 +246,26 @@ a.button {
 			gradient($header-button-default-down-gradient);
 		}
 	
-		&.back:before {
+		&.back:before,
+		&.forward:before {
 			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-gradient[1]), to($header-button-default-gradient[0]));
 		}
 		
-		&.back:active:before {
-			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-down-gradient[1]), to($header-button-default-down-gradient[0]));
-		}
-		
-		&.forward:before {
-			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-gradient[0]), to($header-button-default-gradient[1]));
-		}
-		
+		&.back:active:before,
 		&.forward:active:before {
-			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-down-gradient[0]), to($header-button-default-down-gradient[1]));
+			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-down-gradient[1]), to($header-button-default-down-gradient[0]));
 		}
 	}
 	
-	&.back:before {
+	&.back:before,
+	&.forward:before {
 		background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-gradient[1]), to($header-button-gradient[0]));
 	}
 	
-	&.back:active:before {
+	&.back:active:before,
+	&.forward:active:before {
 		background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-down-gradient[1]), to($header-button-down-gradient[0]));
 	}
-	
-	&.forward:before {
-		background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-gradient[0]), to($header-button-gradient[1]));
-	}
-	
-	&.forward:active:before {
-		background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-down-gradient[0]), to($header-button-down-gradient[1]));
-	}
-
 
 	/* Button: Disabled */
 	&.disabled,

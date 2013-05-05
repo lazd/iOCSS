@@ -1,11 +1,11 @@
+$header-button-size = 34*$px;
+
 div.header {
 	width: 100%;
 
 	position: relative;
 	
-	box-horizontal();
-	box-center();
-	border-box();
+	box-sizing: border-box;
 	
 	height: $header-height;
 
@@ -28,7 +28,7 @@ div.header {
 		color: $header-text-color;
 		font-weight: bold;
 		font-size: 1.25rem;
-		line-height: 2.95rem;
+		line-height: 2.9rem;
 		text-align: center;
 		text-shadow: 0 -0.1rem 0 $header-text-shadow-color;
 	
@@ -47,17 +47,15 @@ div.header {
 		
 		border-box();
 		
-		height: $header-height + 0.1;
-		padding: 0 0.25rem 0 0.25rem;
+		// height: $header-height;
+		padding: 8*$px 0.25rem 0 0.25rem;
 		
 		&:first-child {
-			// The content of the first div should be shoved to the left
-			box-pack: start;
+			float: left;
 		}
 
 		&:last-child {
-			// The content of the last div should be shoved to the right
-			box-pack: end;
+			float: right;
 		}
 
 		/* Header buttons have a different look */
@@ -68,14 +66,15 @@ div.header {
 			vertical-align: top; // for consistency between back/other buttons
 			
 			border-box();
-			height: 25*$vpx;
-			line-height: 1;
+			height: $header-button-size;
 			
-		    padding: 0.5125em 0.75em;
-			margin: -0.1em 0.25em 0 0.25em;
-		
+		    padding: 0.5rem 0.75rem;
+			margin: -0.125rem 0.25rem 0 0.25rem;
+
+			font-size: 1rem;
+
 		    border: none;
-	        border-radius: 0.5em;
+	        border-radius: 0.5rem;
 	
         	box-shadow: inset 0 0.1em 0.1em rgba(0, 0, 0, 0.55),
         	            inset 0 -0.1em 0.05em rgba(0, 0, 0, 0.3),
@@ -84,8 +83,6 @@ div.header {
         				0 0.1em 0.05em rgba(255, 255, 255, 0.35);
         				
 			gradient($header-button-gradient);
-
-			font-size: 1rem;
 
 			// i:first-child:last-child {
 			// 	display: block;
@@ -111,20 +108,14 @@ div.header {
 					gradient($header-button-default-down-gradient);
 				}
 				
-				&.back:before {
+				&.back:before,
+				&.forward:before {
 					background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-gradient[1]), to($header-button-default-gradient[0]));
 				}
 				
-				&.back:active:before {
-					background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-down-gradient[1]), to($header-button-default-down-gradient[0]));
-				}
-				
-				&.forward:before {
-					background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-gradient[0]), to($header-button-default-gradient[1]));
-				}
-				
+				&.back:active:before,
 				&.forward:active:before {
-					background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-down-gradient[0]), to($header-button-default-down-gradient[1]));
+					background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-down-gradient[1]), to($header-button-default-down-gradient[0]));
 				}
 			}
 		}

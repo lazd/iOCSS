@@ -1,69 +1,66 @@
 /* Header
 /* --------------------------------- */
-$header-gradient = rgb(78, 78, 78) rgb(27, 27, 27);
+$black-header-gradient = rgb(78, 78, 78) rgb(27, 27, 27);
 
-$header-border-color = rgb(10, 10, 10);
+$black-header-border-color = rgb(10, 10, 10);
 
-$header-text-color = rgb(193, 193, 193);
-$header-text-shadow-color = rgb(255, 255, 255);
+$black-header-text-color = rgb(193, 193, 193);
 
-$header-button-gradient = rgb(85, 85, 85) rgb(25, 25, 25);
-$header-button-down-gradient = adjust-colors($header-button-gradient, 5%);
+$black-header-button-gradient = rgb(85, 85, 85) rgb(25, 25, 25);
+$black-header-button-down-gradient = adjust-colors($black-header-button-gradient, 5%);
 
-$header-button-default-gradient = rgb(138, 172, 236) rgb(38, 100, 221);
-$header-button-default-down-gradient = adjust-colors($header-button-default-gradient, -4%);
+$black-header-button-default-gradient = rgb(138, 172, 236) rgb(38, 100, 221);
+$black-header-button-default-down-gradient = adjust-colors($header-button-default-gradient, -4%);
 
 .iOCSS.black div.header,
 .iOCSS div.header.black {
-	gradient($header-gradient);
+	gradient($black-header-gradient);
 	
-	border-bottom-color: $header-border-color;
-	
-	// Helps buttons look aligned since we're using box shadow for borders
-	// > div {
-	// 	padding-bottom: 0.125rem;
-	// }
+	border-bottom-color: $black-header-border-color;
 	
 	h1 {
-		color: $header-text-color;
+		color: $black-header-text-color;
+
+		text-shadow: 0 -0.1rem 0 $header-text-shadow-color;
 	}
 	
 	a.button,
 	button {
-		gradient($header-button-gradient);
+		gradient($black-header-button-gradient);
 		
-		color: $header-text-color;
+		color: $black-header-text-color;
+		text-shadow: 0 -1*$px 0 rgba(0, 0, 0, 0.5);
 		
 		&:active {
-			gradient($header-button-down-gradient);
+			gradient($black-header-button-down-gradient);
 		}
 		
 		&.default {
-			color: $header-button-default-text-color;
+			color: $header-text-color;
 		
 			&:active {
-				gradient($header-button-default-down-gradient);
+				gradient($black-header-button-default-down-gradient);
 			}
 		
 			&.back:before,
 			&.forward:before {
-				background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-gradient[1]), to($header-button-default-gradient[0]));
+				background-image: -webkit-gradient(linear, left bottom, right top, from($black-header-button-default-gradient[1]), to($black-header-button-default-gradient[0]));
 			}
 			
 			&.back:active:before,
 			&.forward:active:before {
-				background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-down-gradient[1]), to($header-button-default-down-gradient[0]));
+				background-image: -webkit-gradient(linear, left bottom, right top, from($black-header-button-default-down-gradient[1]), to($black-header-button-default-down-gradient[0]));
 			}
 		}
 		
 		&.back:before,
 		&.forward:before {
-			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-gradient[1]), to($header-button-gradient[0]));
+			background-image: -webkit-gradient(linear, left bottom, right top, from($black-header-button-gradient[1]), to($black-header-button-gradient[0]));
 		}
 		
 		&.back:active:before,
 		&.forward:active:before {
-			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-down-gradient[1]), to($header-button-down-gradient[0]));
+			background-image: -webkit-gradient(linear, left bottom, right top, from($black-header-button-down-gradient[1]), to($black-header-button-down-gradient[0]));
 		}
 	}
 }

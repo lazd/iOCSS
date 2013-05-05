@@ -26,7 +26,7 @@
 			}
 		
 			function changeSize(by) {
-				var newSize = (parseInt(document.documentElement.style.fontSize || 14)+by)+'px';
+				var newSize = (parseInt(document.documentElement.style.fontSize || 16)+by)+'px';
 			
 				document.documentElement.style.fontSize = newSize;
 			
@@ -187,7 +187,7 @@
 						<button id="size-increase"class="blue round"><i class="icon-plus"></i></button>
 					</div></h2>
 				
-					<p>Built using elastic measurement units, iOCSS scales simply by increasing the font-size of the &lt;body&gt; element.</p>
+					<p>Built using elastic measurement units, iOCSS scales simply by increasing the font-size of the &lt;html&gt; element.</p>
 				</div>
 			
 				<div class="well">
@@ -230,12 +230,6 @@
 			
 			<div style="display: none;" id="panel-docs">
 				
-				<div class="well">
-					<h1>iOCSS Documentation</h1>
-					
-					<a href="#gettingStarted">Getting Started</a>
-				</div>
-
 				<div id="gettingStarted" class="well">
 					<h2>Getting Started</h2>
 					<ol>

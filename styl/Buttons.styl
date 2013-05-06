@@ -2,6 +2,8 @@
 button,
 a.button {
 	display: inline-block;
+
+	// TODO: Replace padding with line-height
 	padding: 0.5em 10*$px;
 
 	border: $px solid rgb(110, 110, 110);
@@ -10,18 +12,18 @@ a.button {
 	gradient($button-gray-gradient);
 	
 	box-shadow: inset 0 0.05em 0.05em rgba(255, 255, 255, 0.55),
-	            inset 0 -0.05em 0.05em rgba(255, 255, 255, 0.15),
-	            inset 0.05em 0 0.05em rgba(255, 255, 255, 0.15),
-	            inset -0.05em 0 0.05em rgba(255, 255, 255, 0.15),
+				inset 0 -0.05em 0.05em rgba(255, 255, 255, 0.15),
+				inset 0.05em 0 0.05em rgba(255, 255, 255, 0.15),
+				inset -0.05em 0 0.05em rgba(255, 255, 255, 0.15),
 				0 0 0.125em rgba(0, 0, 0, 1),
 				0 0.1em 0.05em rgba(255, 255, 255, 0.35);
 
 	color: $button-text-color;
-    font-family: $button-font;
+	font-family: $button-font;
 	font-size: 0.875em;
 	font-weight: normal;
 	text-shadow: 0 -1*$px $px rgba(0, 0, 0, 0.5);
-	text-decoration: none; /* Reset underline on a.button */
+	text-decoration: none; // Reset underline on a.button
 	text-align: center;
 	
 	user-select: none;
@@ -49,8 +51,8 @@ a.button {
 
 	// Large button
 	&.large {
-	    font-size: 1.5rem;
-	    font-weight: bold;
+		font-size: 1.5rem;
+		font-weight: bold;
 	
 		& i {
 			font-size: 1.35rem;
@@ -98,10 +100,10 @@ a.button {
 	&.red {
 		border-color: $button-red-border-color;
 	
-	    gradient-shiny($button-red-gradient);
+		gradient-shiny($button-red-gradient);
 	
 		&:active {
-		    gradient-shiny($button-red-down-gradient);
+			gradient-shiny($button-red-down-gradient);
 		}
 	}
 
@@ -117,7 +119,7 @@ a.button {
 		height: 1.675em;
 	
 		overflow: hidden;
-    
+	
 		border: 0.175em solid white;
 		border-radius: 1em;
 
@@ -137,7 +139,7 @@ a.button {
 			gradient($button-round-blue-gradient);
 		
 			&:active {
-			    gradient($button-round-blue-down-gradient);
+				gradient($button-round-blue-down-gradient);
 			}
 		}
 
@@ -145,7 +147,7 @@ a.button {
 			gradient($button-round-red-gradient);
 		
 			&:active {
-			    gradient($button-round-red-down-gradient);
+				gradient($button-round-red-down-gradient);
 			}
 		}
 		

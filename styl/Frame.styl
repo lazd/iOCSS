@@ -7,32 +7,31 @@
 	background-color: $frame-background-color;
 	background-size: 0.75rem;
 	background-image: linear-gradient(left, rgba(0, 0, 0, 0.01) 31%, transparent 31%, transparent);
+	
+	button.large,
+	a.button.large {
+		display: block;
+		margin: 0.3rem 0.6rem;
+	}
 
-    
-    button.large,
-    a.button.large {
-        display: block;
-        margin: 0.3rem 0.6rem;
-    }
-
-    button.large {
-        // TBD: why can't we figure out how to get a button to behave correctly?
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-    }
+	button.large {
+		// TBD: why can't we figure out how to get a button to behave correctly?
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 
 .well {
-    clearfix();
-    
+	clearfix();
+	
 	margin: 0.85rem;
 	padding: 1rem;
 
 	background: $frame-inner-background-color;
 	
 	box-shadow: 0 0.125rem 0 $frame-highlight-color,
-	            inset 0 0.1rem 0.2rem rgba(0, 0, 0, 0.25);
+				inset 0 0.1rem 0.2rem rgba(0, 0, 0, 0.25);
 
 	border: $px solid $frame-inner-border-color;
 	border-radius: 1rem;
@@ -47,5 +46,5 @@
 }
 
 .well + .well {
-    margin-top: 0.5rem;
+	margin-top: 0.5rem;
 }

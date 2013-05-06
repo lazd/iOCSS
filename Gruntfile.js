@@ -1,13 +1,12 @@
 /*global module:false*/
 module.exports = function(grunt) {
-    grunt.loadNpmTasks('grunt-stylus');
-
 	// Project configuration.
 	grunt.initConfig({
+	    pkg: grunt.file.readJSON('package.json'),
 		meta: {
-			version: '0.1.0',
-			appName: 'iOCSS',
-			appWebSite: 'lazd.github.com/iocss'
+			version: '<%= pkg.version %>',
+			appName: '<%= pkg.name %>',
+			appWebSite: '<%= pkg.homepage %>'
 		},
 		stylus: {
 			compile: {
@@ -29,7 +28,10 @@ module.exports = function(grunt) {
 			}
 		}
 	});
-    
+	
 	// Default task
 	grunt.registerTask('default', 'stylus');
+
+    grunt.loadNpmTasks('grunt-contrib-stylus');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 };

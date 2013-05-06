@@ -18,9 +18,9 @@ a.button {
 
 	color: $button-text-color;
     font-family: $button-font;
-	font-size: 0.9em;
-	font-weight: bold;
-	text-shadow: 0 -1*$px 0 rgba(0, 0, 0, 0.5);
+	font-size: 0.875em;
+	font-weight: normal;
+	text-shadow: 0 -1*$px $px rgba(0, 0, 0, 0.5);
 	text-decoration: none; /* Reset underline on a.button */
 	text-align: center;
 	
@@ -50,6 +50,7 @@ a.button {
 	// Large button
 	&.large {
 	    font-size: 1.5rem;
+	    font-weight: bold;
 	
 		& i {
 			font-size: 1.35rem;
@@ -163,7 +164,7 @@ a.button {
 	}
 	
 	$arrow-button-radius = 0.35em;
-	$arrow-button-triangle-size = 36*$px/2;
+	$arrow-button-triangle-size = 34*$px/2;
 	$arrow-button-triangle-skew = -10deg;
 	
 	&.back,
@@ -186,7 +187,7 @@ a.button {
 	&.back {
 		margin-left: 0.65rem !important;
 		
-		padding-left: 0.577rem !important;
+		padding-left: 0.5rem !important;
 		
 		border-top-left-radius: 	$arrow-button-radius !important;
 		border-bottom-left-radius: 	$arrow-button-radius !important;
@@ -212,14 +213,14 @@ a.button {
 	&.forward {
 		margin-right: 0.65rem !important;
 		
-		padding-right: 0.577rem !important;
+		padding-right: 0.5rem !important;
 		
 		border-top-right-radius: 	$arrow-button-radius !important;
 		border-bottom-right-radius: $arrow-button-radius !important;
 		
 		&:before {
 			top: 0.5rem;
-			right: -0.5rem + $px;
+			right: -0.5rem + $px; // Add a pixel, otherwise the shadow shows through
 		
 			transform: translate3d(0,0,0) rotate(-45deg) skew($arrow-button-triangle-skew, $arrow-button-triangle-skew);
 			

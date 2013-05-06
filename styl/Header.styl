@@ -1,6 +1,9 @@
-$header-button-size = 34*$px;
+$header-button-size = 32*$px;
 
 div.header {
+	box-horizontal();
+	align-items: center; // cross axis
+
 	width: 100%;
 
 	position: relative;
@@ -30,7 +33,7 @@ div.header {
 		font-size: 1.25rem;
 		line-height: 2.9rem;
 		text-align: center;
-		text-shadow: 0 -0.1rem 0 $header-text-shadow-color;
+		text-shadow: 0 -1*$px $px $header-text-shadow-color;
 	
 		text-overflow: ellipsis;
 	}
@@ -40,38 +43,38 @@ div.header {
 		position: relative;
 		z-index: 2;
 		
-		// Center the buttons vertically
 		box-horizontal();
-		box-align: center;
-		box-flex: 1;
+		flex: 1;
+		align-items: center; // cross axis
 		
 		border-box();
 		
 		// height: $header-height;
-		padding: 8*$px 0.25rem 0 0.25rem;
-		
-		&:first-child {
-			float: left;
-		}
+		padding: 0 0.25rem 0 0.25rem;
 
+		&:first-child {
+			justify-content: flex-start;
+		}
 		&:last-child {
-			float: right;
+			justify-content: flex-end;
 		}
 
 		/* Header buttons have a different look */
         a.button,
 		button {
-			position: relative; // so badges can be positioned
+			position: relative; // So badges can be positioned
 			
-			vertical-align: top; // for consistency between back/other buttons
+			vertical-align: top; // For consistency between back/other buttons
 			
 			border-box();
 			height: $header-button-size;
 			
 		    padding: 0.5rem 0.75rem;
-			margin: -0.125rem 0.25rem 0 0.25rem;
+			margin: 0 0.25rem 0 0.25rem;
 
-			font-size: 1rem;
+			font-size: 0.875rem;
+			font-weight: normal;
+			white-space: nowrap; // Never, ever wrap.
 
 		    border: none;
 	        border-radius: 0.5rem;

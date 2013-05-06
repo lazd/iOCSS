@@ -31,18 +31,20 @@ gradient($colors) {
 Various helpers for CSS3 flexible box model
 */
 box-horizontal() {
-	display: box;
-	box-orient: horizontal;
-	box-align: stretch;
+	display: flex;
+	flex-direction: row;
+	
+	// box-align: stretch;
 }
 
 box-vertical() {
-	display: box;
-	box-orient: vertical;
-	box-align: stretch;
+	display: flex;
+	flex-direction: column;
+
+	// box-align: stretch;
 }
 
 box-center() {
-	box-pack: center;
-	box-align: center;
+	justify-content: center; // main axis
+	align-items: center; // cross axis
 }

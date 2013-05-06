@@ -1,5 +1,5 @@
 ul.list {
-	box-flex: 1;
+	flex: 1;
 	
 	padding: 0;
 	margin: 0;
@@ -9,9 +9,8 @@ ul.list {
 	li {
 	    border-box();
 		box-horizontal();
-		box-align: center;
-		box-pack: start;
-	    
+		align-items: center;
+
 	    width: 100%;
 		height: 3rem;
 		padding: 0 0.5rem;
@@ -55,9 +54,9 @@ ul.list {
 		
 	
 		div:last-child {
-			box-flex: 1;
-			
-			text-align: right;
+			box-horizontal();
+			flex: 1;
+			justify-content: flex-end;
 			
 			a.button.details,
 			button.details {

@@ -71,7 +71,7 @@ git clone https://github.com/lazd/iOCSS.git
 
 2. Install dependencies
 ```
-cd iOCSS  
+cd iOCSS/
 npm install
 ```
 

@@ -12,6 +12,9 @@ $black-header-button-down-gradient = adjust-colors($black-header-button-gradient
 $black-header-button-default-gradient = rgb(138, 172, 236) rgb(38, 100, 221);
 $black-header-button-default-down-gradient = adjust-colors($black-header-button-default-gradient, -4%);
 
+$black-arrow-darken = 2%
+$black-arrow-lighten = 0.5%
+
 .iOCSS.black div.header,
 .iOCSS div.header.black {
 	gradient($black-header-gradient);
@@ -44,23 +47,23 @@ $black-header-button-default-down-gradient = adjust-colors($black-header-button-
 		
 			&.back:before,
 			&.forward:before {
-				background-image: -webkit-gradient(linear, left bottom, right top, from($black-header-button-default-gradient[1]), to($black-header-button-default-gradient[0]));
+				background-image: -webkit-gradient(linear, left bottom, right top, from(lighten($black-header-button-default-gradient[1], $black-arrow-lighten)), to(darken($black-header-button-default-gradient[0], $black-arrow-darken)));
 			}
 			
 			&.back:active:before,
 			&.forward:active:before {
-				background-image: -webkit-gradient(linear, left bottom, right top, from($black-header-button-default-down-gradient[1]), to($black-header-button-default-down-gradient[0]));
+				background-image: -webkit-gradient(linear, left bottom, right top, from(lighten($black-header-button-default-down-gradient[1], $black-arrow-lighten)), to(darken($black-header-button-default-down-gradient[0], $black-arrow-darken)));
 			}
 		}
 		
 		&.back:before,
 		&.forward:before {
-			background-image: -webkit-gradient(linear, left bottom, right top, from($black-header-button-gradient[1]), to($black-header-button-gradient[0]));
+			background-image: -webkit-gradient(linear, left bottom, right top, from(lighten($black-header-button-gradient[1], $black-arrow-lighten)), to(darken($black-header-button-gradient[0], $black-arrow-darken)));
 		}
 		
 		&.back:active:before,
 		&.forward:active:before {
-			background-image: -webkit-gradient(linear, left bottom, right top, from($black-header-button-down-gradient[1]), to($black-header-button-down-gradient[0]));
+			background-image: -webkit-gradient(linear, left bottom, right top, from(lighten($black-header-button-down-gradient[1], $black-arrow-lighten)), to(darken($black-header-button-down-gradient[0], $black-arrow-darken)));
 		}
 	}
 }

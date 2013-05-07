@@ -165,10 +165,6 @@ a.button {
 		}
 	}
 	
-	$arrow-button-radius = 0.35em;
-	$arrow-button-triangle-size = 34*$px/2;
-	$arrow-button-triangle-skew = -10deg;
-	
 	&.back,
 	&.forward {
 		position: relative;
@@ -176,12 +172,24 @@ a.button {
 		&:before {
 			display: block;
 
+			margin-top: -1 * ($header-button-size / 4);
+			top: 50%;
+
 			position: absolute;
 			z-index: 1;
 			
 			height: $arrow-button-triangle-size;
 			width: $arrow-button-triangle-size;
-			
+
+			// Fix antialiasing problems in Chrome: http://stackoverflow.com/a/6898097/1170723
+			// -webkit-backface-visibility: hidden; // Causes jagged edges in iOS
+
+			// Smooth in iOS, jagged in Chrome
+			transform: rotate(-45deg) skew($arrow-button-triangle-skew, $arrow-button-triangle-skew);
+
+			// Smooth in Chrome, jagged in iOS
+			// transform: rotate3d(0, 0, 1, -45deg) skew($arrow-button-triangle-skew, $arrow-button-triangle-skew);
+
 			content: '';
 		}
 	}
@@ -197,18 +205,15 @@ a.button {
 		border-left: none;
 		
 		&:before {
-			top: 0.5rem;
-			left: -0.5rem;
-
-			transform: translate3d(0,0,0) rotate(-45deg) skew($arrow-button-triangle-skew, $arrow-button-triangle-skew);
+			left: $arrow-offset;
 
 			-webkit-mask-image: -webkit-gradient(linear, left top, right bottom,
 					from(black),
-					color-stop(0.55, black),
-					color-stop(0.55, transparent),
+					color-stop(0.6, black),
+					color-stop(0.6, transparent),
 					to(transparent));
 		
-			box-shadow: 0.079rem 0.079rem 0.125rem rgba(0,0,0,0.425) inset;
+			box-shadow: $px $px $px rgba(0,0,0,0.5) inset;
 		}
 	}
 
@@ -221,18 +226,18 @@ a.button {
 		border-bottom-right-radius: $arrow-button-radius !important;
 		
 		&:before {
-			top: 0.5rem;
-			right: -0.5rem + $px; // Add a pixel, otherwise the shadow shows through
+			right: $arrow-offset;
+
+			// Good in Chrome < 32px, bad in iOS
+			// right: -0.5rem + $px; // Add a half pixel, otherwise the shadow shows through
 		
-			transform: translate3d(0,0,0) rotate(-45deg) skew($arrow-button-triangle-skew, $arrow-button-triangle-skew);
-			
 			-webkit-mask-image: -webkit-gradient(linear, right bottom, left top,
 					from(black),
-					color-stop(0.55, black),
-					color-stop(0.55, transparent),
+					color-stop(0.6, black),
+					color-stop(0.6, transparent),
 					to(transparent));
 		
-			box-shadow: -0.079rem -0.079rem 0.125rem rgba(0,0,0,0.425) inset;
+			box-shadow: -1*$px -1*$px $px rgba(0,0,0,0.5) inset;
 		}
 	}
 
@@ -250,23 +255,23 @@ a.button {
 	
 		&.back:before,
 		&.forward:before {
-			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-gradient[1]), to($header-button-default-gradient[0]));
+			background-image: -webkit-gradient(linear, left bottom, right top, from(lighten($header-button-default-gradient[1], $arrow-lighten)), to(darken($header-button-default-gradient[0], $arrow-darken)));
 		}
 		
 		&.back:active:before,
 		&.forward:active:before {
-			background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-default-down-gradient[1]), to($header-button-default-down-gradient[0]));
+			background-image: -webkit-gradient(linear, left bottom, right top, from(lighten($header-button-default-down-gradient[1], $arrow-lighten)), to(darken($header-button-default-down-gradient[0], $arrow-darken)));
 		}
 	}
-	
+
 	&.back:before,
 	&.forward:before {
-		background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-gradient[1]), to($header-button-gradient[0]));
+		background-image: -webkit-gradient(linear, left bottom, right top, from(lighten($header-button-gradient[1], $arrow-lighten)), to(darken($header-button-gradient[0], $arrow-darken)));
 	}
 	
 	&.back:active:before,
 	&.forward:active:before {
-		background-image: -webkit-gradient(linear, left bottom, right top, from($header-button-down-gradient[1]), to($header-button-down-gradient[0]));
+		background-image: -webkit-gradient(linear, left bottom, right top, from(lighten($header-button-down-gradient[1], $arrow-lighten)), to(darken($header-button-down-gradient[0], $arrow-darken)));
 	}
 
 	/* Button: Disabled */

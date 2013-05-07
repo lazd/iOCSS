@@ -1,9 +1,11 @@
 // nib for CSS3 mixins
 @import 'nib'
+
+// iOCSS only supports webkit
 vendor-prefixes = webkit official
 support-for-ie = false
 
-// Supporting variables and mixins
+// Variables and mixins
 @import 'Variables'
 @import 'Mixins'
 
@@ -20,14 +22,15 @@ support-for-ie = false
 	
 	overflow: hidden;
 	
-	& > * {
+	> * {
 		height: 100%;
 	}
 }
 
 // Main elements
 .iOCSS {
-    @import 'Scroller'
+    @import 'Scrollable'
+    @import 'Headings'
     @import 'Buttons'
     @import 'Header'
     @import 'Footer'

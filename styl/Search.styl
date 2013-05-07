@@ -7,8 +7,6 @@ form.search {
 	
 	gradient($search-gradient);
 
-    box-shadow: 0 0.175rem 1rem rgba(0,0,0,0.3);
-
 	i {
 		position: absolute;
 		
@@ -17,6 +15,7 @@ form.search {
 	}
 
 	i.icon-search {
+		color: $search-icon-color;
 		font-size: 1.125rem;
 		top: 0.8125rem;
 		left: 1.125rem;
@@ -41,7 +40,7 @@ form.search {
 		height: 2rem;
 		padding: 0.357rem 0.75rem 0.357rem 2rem;
 	
-	    box-shadow: inset 0 0.125rem 0.25rem rgba(0,0,0,0.2);
+	    box-shadow: inset 0 0.125rem 0.125rem rgba(0,0,0,0.25);
 
 		border: $px solid $search-field-border-color;
 		border-radius: 1rem;
@@ -49,5 +48,9 @@ form.search {
 		font-size: 1rem;
 	
 		outline: none;
+
+		&::-webkit-input-placeholder{
+			color: $search-placeholder-color;
+		}
 	}
 }

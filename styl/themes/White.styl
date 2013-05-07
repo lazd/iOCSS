@@ -7,17 +7,26 @@ $white-header-border-color = rgb(170, 170, 170);
 $white-header-text-color = rgb(71, 71, 71);
 $white-header-text-shadow-color = rgb(255, 255, 255);
 
-$white-header-button-gradient = rgb(241, 241, 241) rgb(215, 216, 217);
+$white-header-button-gradient = rgb(236, 236, 236) rgb(211, 211, 211);
 $white-header-button-down-gradient = adjust-colors($white-header-button-gradient, -5%);
 
-$white-header-button-default-gradient = rgb(177, 181, 186) rgb(106, 114, 125);
+$white-header-button-default-gradient = rgb(121, 121, 121) rgb(72, 72, 72);
 $white-header-button-default-down-gradient = adjust-colors($white-header-button-default-gradient, -5%);
 $white-header-button-default-text-color = rgb(255, 255, 255);
 
 $white-arrow-darken = 1%
 $white-arrow-lighten = 0%
 
+$white-text-color = rgb(71, 71, 71);
+
+$white-frame-background = rgb(233, 234, 236);
+
 $white-search-gradient = rgb(217, 217, 219) rgb(192, 193, 194);
+
+
+.iOCSS.white {
+	color: $white-text-color;
+}
 
 .iOCSS.white .header,
 .iOCSS .header.white {
@@ -121,6 +130,7 @@ $white-footer-icon-down-color = rgb(95, 95, 95);
 		
 		i:before {
 			color: $white-footer-icon-color;
+			text-shadow: 0 $px white;
 		}
 		
 		&.down {
@@ -156,11 +166,29 @@ $white-footer-icon-down-color = rgb(95, 95, 95);
 }
 
 
+/* List
+/* --------------------------------- */
+.iOCSS.white .list,
+.list.white {
+	border-bottom: $px solid rgb(198, 199, 201);
+	box-shadow: 0 $px 0 white;
+}
+
+
 /* Frame
 /* --------------------------------- */
 .iOCSS.white .frame,
 .frame.white {
-	background: rgb(233, 234, 236);
+	background: $white-frame-background;
+	background-image: none;
+}
+
+
+/* Frame
+/* --------------------------------- */
+.iOCSS.white .frame,
+.frame.white {
+	background: $white-frame-background;
 	background-image: none;
 }
 
@@ -170,4 +198,9 @@ $white-footer-icon-down-color = rgb(95, 95, 95);
 .iOCSS.white .search,
 .search.white {
 	gradient($white-search-gradient);
+
+	input {
+		border: rgb(176, 176, 176);
+		box-shadow: 0 $px 0 rgb(228, 228, 228);
+	}
 }

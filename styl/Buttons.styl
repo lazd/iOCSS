@@ -11,17 +11,17 @@ button,
 
 	gradient($button-gray-gradient);
 	
-	box-shadow: inset 0 0.05em 0.05em rgba(255, 255, 255, 0.55),
-				inset 0 -0.05em 0.05em rgba(255, 255, 255, 0.15),
-				inset 0.05em 0 0.05em rgba(255, 255, 255, 0.15),
-				inset -0.05em 0 0.05em rgba(255, 255, 255, 0.15),
-				0 0 0.125em rgba(0, 0, 0, 1),
-				0 0.1em 0.05em rgba(255, 255, 255, 0.35);
+	box-shadow: inset 0 $px $px rgba(255, 255, 255, 0.55),
+				inset 0 -1*$px $px rgba(255, 255, 255, 0.15),
+				inset $px 0 $px rgba(255, 255, 255, 0.15),
+				inset -1*$px 0 $px rgba(255, 255, 255, 0.15),
+				0 0 $px rgba(0, 0, 0, 1),
+				0 $px $px rgba(255, 255, 255, 0.35);
 
 	color: $button-text-color;
 	font-family: $button-font;
 	font-size: 0.875em;
-	font-weight: normal;
+	font-weight: bold;
 	text-shadow: 0 -1*$px $px rgba(0, 0, 0, 0.5);
 	text-decoration: none; // Reset underline on .button
 	text-align: center;
@@ -51,6 +51,8 @@ button,
 
 	// Large button
 	&.large {
+		border-radius: 0.625rem;
+		
 		font-size: 1.5rem;
 		font-weight: bold;
 	

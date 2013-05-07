@@ -1,4 +1,4 @@
-ul.list {
+.list {
 	flex: 1;
 	
 	padding: 0;
@@ -27,7 +27,25 @@ ul.list {
 			font-size: 1.25rem;
 		}
 		
-		a.button,
+		// A drawer for buttons
+		> div:last-child {
+			box-horizontal();
+			flex: 1;
+			justify-content: flex-end;
+			
+			.button.details,
+			button.details {
+				padding-left: 0.085rem;
+			}
+	
+			i.view {
+				color: $list-view-color;
+				font-size: 1.45rem;
+				height: 1rem;
+			}
+		}
+
+		.button,
 		button {
 			vertical-align: top;
 			padding: 0.25rem 0.5rem;
@@ -38,7 +56,7 @@ ul.list {
 			text-align: center;
 		}
 		
-		a.button.round,
+		.button.round,
 		button.round {
 			vertical-align: top;
 			padding: 0;
@@ -49,24 +67,6 @@ ul.list {
 			i {
 				font-size: 0.95rem;
 				line-height: 1.35;
-			}
-		}
-		
-	
-		div:last-child {
-			box-horizontal();
-			flex: 1;
-			justify-content: flex-end;
-			
-			a.button.details,
-			button.details {
-				padding-left: 0.085rem;
-			}
-	
-			i.view {
-				color: $list-view-color;
-				font-size: 1.45rem;
-				height: 1rem;
 			}
 		}
 	}

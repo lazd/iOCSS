@@ -17,8 +17,10 @@ $white-header-button-default-text-color = rgb(255, 255, 255);
 $white-arrow-darken = 1%
 $white-arrow-lighten = 0%
 
-.iOCSS.white div.header,
-.iOCSS div.header.white {
+$white-search-gradient = rgb(217, 217, 219) rgb(192, 193, 194);
+
+.iOCSS.white .header,
+.iOCSS .header.white {
 	gradient($white-header-gradient);
 	
 	border-bottom-color: $white-header-border-color;
@@ -29,7 +31,7 @@ $white-arrow-lighten = 0%
 		text-shadow: 0 $px 0 $white-header-text-shadow-color;
 	}
 	
-	a.button,
+	.button,
 	button {
 		gradient($white-header-button-gradient);
 		
@@ -94,14 +96,14 @@ $white-footer-icon-down-gradient = rgb(72, 72, 72) rgb(145, 145, 145);
 $white-footer-icon-color = rgb(100, 100, 100);
 $white-footer-icon-down-color = rgb(95, 95, 95);
 
-.iOCSS.white div.footer,
-.iOCSS div.footer.white {
+.iOCSS.white .footer,
+.iOCSS .footer.white {
 	gradient($white-footer-gradient);
 	
     border-top: $px solid $white-footer-border-color;
 			
 	button,
-	a.button {
+	.button {
 		gradient($white-footer-gradient);
 		
 		color: $white-footer-button-text-color;
@@ -151,4 +153,21 @@ $white-footer-icon-down-color = rgb(95, 95, 95);
 			}
 		}
 	}
+}
+
+
+/* Frame
+/* --------------------------------- */
+.iOCSS.white .frame,
+.frame.white {
+	background: rgb(233, 234, 236);
+	background-image: none;
+}
+
+
+/* Search
+/* --------------------------------- */
+.iOCSS.white .search,
+.search.white {
+	gradient($white-search-gradient);
 }

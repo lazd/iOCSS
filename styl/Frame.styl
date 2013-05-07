@@ -4,10 +4,12 @@
 	
 	box-vertical();
 
-	background-color: $frame-background-color;
-	background-size: 0.75rem;
-	background-image: linear-gradient(left, rgba(0, 0, 0, 0.01) 31%, transparent 31%, transparent);
-	
+	&.striped {
+		background-color: $frame-background-color;
+		background-size: 0.75rem;
+		background-image: linear-gradient(left, rgba(0, 0, 0, 0.01) 31%, transparent 31%, transparent);
+	}
+
 	button.large,
 	.button.large {
 		display: block;

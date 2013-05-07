@@ -28,6 +28,14 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		copy: {
+			examples: {
+				expand: true,	
+				cwd: 'examples/',
+				src: ['**'],
+				dest: 'build/examples/'
+			}
+		},
 		watch: {
 			stylus: {
 				files: ['styl/*', 'styl/themes/*'],
@@ -37,9 +45,10 @@ module.exports = function(grunt) {
 	});
 	
 	// Default task
-	grunt.registerTask('default', ['stylus', 'concat']);
+	grunt.registerTask('default', ['stylus', 'concat', 'copy']);
 
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-stylus');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
 };

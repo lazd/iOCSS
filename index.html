@@ -85,10 +85,17 @@
 				setTabFromHash();
 				
 				document.addEventListener("click", function(evt) {
-					if (evt.target.className.match(/changeTheme/))
+					if (evt.target.className.match(/changeTheme/)) {
 						document.body.className = 'iOCSS '+(evt.target.id || '');
+						var frame = document.getElementsByClassName('frame')[0];
+						if (evt.target.id !== 'white') {
+							frame.className = 'frame striped';
+						}
+						else {
+							frame.className = 'frame';
+						}
+					}
 				});
-				
 			
 				window.addEventListener("hashchange", setTabFromHash);
 			});
@@ -159,13 +166,13 @@
 		
 		<div class="header">
 			<div>
-				<a href="https://github.com/lazd/iOCSS" class="button"><i class="icon-github"></i> Git</a>
+				<a href="https://github.com/lazd/iOCSS" class="button"><i class="icon-github-alt"></i> Git</a>
 			</div>
 			
 			<h1>iOCSS</h1>
 			
 			<div>
-				<a href="css/io.css" download="io.css" class="button default"><i class="icon-download-alt"></i> Download</a>
+				<a href="css/io.css" download="io.css" class="button forward default"><i class="icon-download-alt"></i> Download</a>
 			</div>
 		</div>
 		

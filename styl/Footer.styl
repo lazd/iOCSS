@@ -20,9 +20,12 @@
 		height: $footer-size;
 		display: block;
 		margin: 0;
-		padding: 0;
+		padding: 0.3125rem 0 0.6875rem 0;
 		
 		gradient($footer-gradient);
+
+		line-height: 0;
+		vertical-align: top;
 		
 		border: none;
 		border-left: (1 / $footer-font-size)*$px solid $footer-button-border-left-color;
@@ -52,8 +55,7 @@
 			text-shadow: none;
 			display: block;
 			
-			height: $footer-icon-height;
-			margin: 0 0 ($footer-size / 14) 0;
+			height: $footer-size - 1;
 		}
 
 		i:before {

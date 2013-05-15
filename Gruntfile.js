@@ -40,6 +40,10 @@ module.exports = function(grunt) {
 			stylus: {
 				files: ['styl/*', 'styl/themes/*'],
 				tasks: 'stylus'
+			},
+			examples: {
+				files: [ 'examples/**' ],
+				tasks: 'copy'
 			}
 		}
 	});

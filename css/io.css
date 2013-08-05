@@ -90,6 +90,10 @@ html,body{height:100%;padding:0;margin:0}
 .iOCSS .well h2{margin:0}
 .iOCSS .well p{margin:1rem 0 0 0}
 .iOCSS .well + .well{margin-top:.5rem}
+.iOCSS textarea.well{padding:.5rem;font-size:1rem;font-family:Helvetica}
+.iOCSS .well-header{margin:1.25rem .875rem .5rem .875rem;padding:0 0 0 .75rem;font-size:1.125rem;font-weight:bold;color:#4c566c;text-shadow:0 .0625rem 0 rgba(255,255,255,0.85);}
+.iOCSS .well-header + .well{margin-top:0}
+.iOCSS .well + .well-header{margin-top:.5rem}
 .iOCSS form.search{position:relative;padding:.375rem .5rem;border-bottom:.0625rem solid #a3a3a3;background:-webkit-gradient(linear, left top, left bottom, color-stop(0, #e0e4e7), color-stop(1, #b4bec6));background:-webkit-linear-gradient(top, #e0e4e7 0, #b4bec6 100%);background:linear-gradient(top, #e0e4e7 0, #b4bec6 100%);}
 .iOCSS form.search i{position:absolute;color:#979797;font-size:1.25rem}
 .iOCSS form.search i.icon-search{color:#979797;font-size:1.125rem;top:.8125rem;left:1.125rem}

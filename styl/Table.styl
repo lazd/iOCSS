@@ -1,0 +1,42 @@
+.table {
+	width: 100%;
+	flex: 1;
+
+	border-collapse: collapse;
+
+	tr, .table-row {
+		background: white;
+		border-bottom: $px solid $list-border-color;
+	}
+
+	th, .table-heading {
+		height: $table-heading-height;
+
+		border-bottom: $px solid $table-heading-cell-border;
+		
+		gradient($table-heading-gradient);
+
+		text-align: left;
+		text-shadow: 0 $px 0 rgba(255, 255, 255, 0.5);
+
+		& + th,
+		& + .table-heading {
+			border-left: $px solid $table-heading-border;
+			box-shadow: inset $px 0 0 rgba(255, 255, 255, 0.25);
+		}
+	}
+
+	th, .table-heading,
+	td, .table-cell {
+		padding: 0 0.5rem;
+	}
+
+	td, .table-cell {
+		height: $list-height;
+
+		& + td, 
+		& + .table-cell {
+			border-left: $px solid $table-cell-border;
+		}
+	}
+}

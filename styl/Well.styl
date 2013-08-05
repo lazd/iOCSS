@@ -1,7 +1,9 @@
+$well-margin = 0.875rem;
+
 .well {
 	clearfix();
 	
-	margin: 0.875rem;
+	margin: $well-margin;
 	padding: 1rem;
 
 	background: $frame-inner-background-color;
@@ -22,5 +24,30 @@
 }
 
 .well + .well {
+	margin-top: 0.5rem;
+}
+
+textarea.well {
+	padding: 0.5rem;
+	
+	font-size: 1rem;
+	font-family: Helvetica;
+}
+
+.well-header {
+	margin: 1.25rem $well-margin 0.5rem $well-margin;
+
+	padding: 0 0 0 0.75rem;
+	font-size: 1.125rem;
+	font-weight: bold;
+	color: $well-header-color;
+	text-shadow: 0 $px 0 rgba(255, 255, 255, 0.85);
+
+	& + .well {
+		margin-top: 0;
+	}
+}
+
+.well + .well-header {
 	margin-top: 0.5rem;
 }
